@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif; 
+}
+
+body{
+    text-align: center;
+}
+
+.signin{
+    width:fit-content;
+    height:fit-content;
+    margin-top: 15%;
+    margin-left: 35%;
+    margin-right: -5%;
+    background: rgba(119, 63, 56, 0.774);
+    text-align: center;
+}
+
+
+input, select, textarea{
+    color: white;
+}
+
+label{
+    color: white;
+    margin-top: 4%
+}
+
+.mainLabels{
+    font-size: 230%;
+}
+
+.logInBtn{
+    margin-left: 3em;
+    background-color:#913704;
+    border: none;
+    padding: 15px 32px;
+    border-radius: 25px;
+    color: white;
+}
+
+input{
+    font-size: 230%;
+    border-radius: 25px;
+}
+
+.logInBtn :hover{
+    background-color: rgb(243, 211, 122);;
+}
+
+.rememberMe{
+    display: block;
+    margin-top: 6%;
+}
+
+.sign-up{
+    font-size: 1.3em;
+    text-decoration: none;
+    color:#1b18dc;
+    background-color: none;
+    border: none;
+    margin-left: 4em;
+    display: inline-block;
+    margin-top: 1em;
+}
+

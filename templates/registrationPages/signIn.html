@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/signIn.css' %}">
+{% endblock%}
+{% block title %} Sign In {% endblock %}
+
+{% block content %}
+<div class="signin">
+    <div id="container">
+        <label class = "mainLabels">Username</label>
+        <input type="text" placeholder="username"><br>
+        <label class = "mainLabels">Password</label>
+        <input type="password" placeholder="password" id="pass" name="password" minlength="8"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+    </div>
+    <form method="POST">
+        <div class="rememberMe">
+            <input class='check' type="checkbox" checked="checked" name="remember">
+            <label>Remember Password</label><br>
+            <button type="submit" class="logInBtn">Sign In</button>
+        </div>
+    </form>
+
+    <div class="notAcc">
+        <small class="text-muted">Don't have an account?
+            <a class="ml-2" href="{% url 'signUp' %}">Sign up</a>
+        </small>
+    </div>
+    <div id="msgInvalidPass">
+        <p id="letter" class="notvalid">A <b>lowercase</b> letter</p>
+        <p id="capital" class="notvalid">A <b>capital</b> letter</p>
+        <p id="number" class="notvalid">A <b>number</b></p>
+        <p id="length" class="notvalid">Minimum <b>8 characters</b></p>
+    </div>
+</div>
+{% endblock %}
