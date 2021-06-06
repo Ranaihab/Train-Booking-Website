@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif; 
+}
+
+.filter{
+    margin-top: 15%;
+    background: rgba(119, 63, 56, 0.774);
+
+}
+
+label{
+    font-size: 100px;
+    color: white;
+}
