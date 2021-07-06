@@ -9,9 +9,30 @@
 <div class="filter">
     <label>From:</label>
     <input type="text" name="from"><br>
-    <label>To:</label>
-    <input type="text" name="to"><br>
+    <label >To:</label>
+    <input type="text" name="to" id="l1"><br>
     <button>Filter</button>
     
 </div>
+
+<div class="trips">
+    <p>Trips</p>
+    <table>
+        
+        <tr>
+            <th>ID</th>
+            <th>Train</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Day</th>
+            <th>Time</th>
+            <th>Seats</th>
+        </tr>
+        <tr id="notrip">
+            <td colspan="7">No Trips Available</td>
+        </tr>
+        
+    </table>
+</div>
+<button id="Book">Book</button>
 {% endblock content %}

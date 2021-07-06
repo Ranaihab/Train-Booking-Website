@@ -4,12 +4,87 @@
 }
 
 .filter{
-    margin-top: 15%;
-    background: rgba(119, 63, 56, 0.774);
-
+    display: inline-block;
+    align-items: center;
+    margin-top: 7%;
+    background: rgba(51, 46, 45, 0);
+    width: 350px;
+    height: 100px;
+    padding-top: 20px;
 }
 
-label{
-    font-size: 100px;
+.filter label{
+    font-size: 17px;
     color: white;
+    margin-left: 10px;
 }
+
+.filter input{
+    border:2px solid black;
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+#l1{
+    margin-left: 20px;
+}
+
+.filter button{
+    height: 30px;
+    width: 70px;
+    margin-left: 97px;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.trips p{
+    font-family:'Times New Roman', Times, serif;
+    font-size: 40px;
+    color:whitesmoke;
+    text-align: center;
+    padding-top: 0.5px;
+}
+
+.trips{
+
+    margin-top: 2%;
+    margin-left: 25%;
+    background: rgba(51, 46, 45, 1);
+    width: 800px;
+    height: 400px;
+    
+}
+
+table, th, td {
+    margin-top: -3%;
+    border: 1px solid black;
+    table-layout: fixed;
+    text-align: center;
+}
+
+th{
+    width: 133.3px;
+    height: 40px;
+    font-size: 20px;
+    color: whitesmoke;
+    font-weight: bold;
+
+}
+
+td{
+    width: 114.28px;
+    height: 40px;
+    font-size: 16px;
+    color: whitesmoke;
+}
+
+#Book{
+    height: 35px;
+    width: 100px;
+    margin-left: 48%;
+    margin-top: 20px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
