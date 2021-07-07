@@ -7,7 +7,7 @@
     display: inline-block;
     align-items: center;
     margin-top: 7%;
-    background: rgba(51, 46, 45, 0);
+    background: rgba(51, 46, 45, 0.63);
     width: 350px;
     height: 100px;
     padding-top: 20px;
@@ -50,7 +50,7 @@
 
     margin-top: 2%;
     margin-left: 25%;
-    background: rgba(51, 46, 45, 1);
+    background: rgba(51, 46, 45, 0.63);
     width: 800px;
     height: 400px;
     
@@ -87,4 +87,3 @@ td{
     font-size: 17px;
     font-weight: bold;
 }
-
