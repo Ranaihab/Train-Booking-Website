@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    text-align: center;
+    align-items: center;
+}
+
+.signup {
+    width: 40%;
+    margin-top: 15%;
+    margin-left: 30%;
+    margin-right: 5%;
+    background: rgba(51, 46, 45, 0.63);
+    text-align: center;
+}
+
+form {
+    text-align: center;
+    align-items: center;
+    padding-bottom: 50px;
+}
+
+label {
+    color: white;
+    font-size: 20px;
+}
+
+.sign {
+    margin-left: 3px;
+    background-color: #913704;
+    border: none;
+    padding: 15px 32px;
+    border-radius: 25px;
+    color: white;
+}
+
+input {
+    margin-top: 20px;
+    font-size: 15px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    padding-top: 10px;
+    color: black;
+}
+
+input::placeholder {
+    text-align: center;
+}
+
+.sign:hover {
+    background-color: rgb(243, 211, 122);
+}
