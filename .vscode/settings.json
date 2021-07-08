@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "c:\\django\\env\\Scripts\\pythonw.exe"
+    "python.pythonPath": "c:\\django\\env\\Scripts\\pythonw.exe",
+    "liveServer.settings.port": 5502
 }
