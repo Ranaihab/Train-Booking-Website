@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/signUp.css' %}">
+<script src="{% static '/js/valid.js' %}"></script>
+{% endblock%} {% block title %} Sign Up{% endblock %} {% block content %}
+
+<div class="signup">
+    <div class=" container ">
+        <form onsubmit="return valid(this); " method="POST ">
+            <label for="fname "><b> First Name:</b></label>
+            <input type="text " placeholder="First Name " name=" fname ">
+            <br>
+            <label for="sname "><b> Last Name:</b></label>
+            <input type="text " placeholder="Last Name " name=" sname ">
+            <br>
+            <label for="email "><b> Email:</b></label>
+            <input type=" text " placeholder="Email " name=" email ">
+            <br>
+            <label for=" pass "><b> Password:</b></label>
+            <input type="password " name="pass " placeholder="Password ">
+            <br>
+            <input type="submit" class="sign " value="Sign Up">
+        </form>
+
+    </div>
+
+</div>
+
+
+{%endblock%}

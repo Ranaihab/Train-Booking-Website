@@ -2,16 +2,15 @@
     box-sizing: border-box;
 }
 
-
-nav{
+nav {
     display: inline;
-    height: 60px;
-    top:-5px;
+    height: 50px;
+    top: -5px;
     margin-top: 5px;
     padding-top: 20px;
     text-align: right;
-    width: 100%;
-    font-size: 24px;
+    width: 90%;
+    font-size: 18px;
     font-family: "Wire+One";
     background: rgba(24, 0, 0, 0.774);
     position: fixed;
@@ -19,22 +18,22 @@ nav{
     right: 0;
 }
 
-nav a{
+nav a {
     margin-right: 30px;
     padding: 0px;
     color: rgb(250, 251, 242);
     text-decoration: none;
 }
 
-nav a:hover{
+nav a:hover {
     color: rgb(243, 211, 122);
 }
 
-#signIn{
+#signIn {
     margin-right: 0px;
 }
 
-#sp1{
+#sp1 {
     color: white;
     padding: 0 0 0 0;
 }
