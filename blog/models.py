@@ -28,6 +28,7 @@ class Trip(models.Model):
     day = models.DateField(null = False)
     startTime = models.TimeField(null = False)
     endTime = models.TimeField(null = False)
+    price = models.FloatField(null = False, default=0)
 
 class Book(models.Model):
     trip = models.ForeignKey(Trip, on_delete = models.CASCADE, related_name = "BookTrips",null = False)
