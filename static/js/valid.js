@@ -46,18 +46,17 @@ function valid(form) {
         }
         at = '@';
         dot = '.';
-        if (!at.test(form.email.value) || !dot.test(form.email.value) {
-                alert("Error: enter a correct email ");
-                form.email.focus();
-                return false;
-            }
-
-
-        }
-        else {
-            alert("Error: Please enter an email");
-            form.pass.focus();
+        if (!at.test(form.email.value) || !dot.test(form.email.value)) {
+            alert("Error: enter a correct email ");
+            form.email.focus();
             return false;
         }
-        return true;
+
+
+    } else {
+        alert("Error: Please enter an email");
+        form.pass.focus();
+        return false;
     }
+    return true;
+}
