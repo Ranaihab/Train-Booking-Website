@@ -1,154 +1,62 @@
-{% extends "base.html" %}
-{% load static %}
-{% block head %} 
-<link rel="stylesheet" href="{% static 'css/certaintrip.css' %}">
-{% endblock%}
-{% block title %} Trip {% endblock %}
-{% block content %}
- <div class="container body-content">
-        
+{% extends "base.html" %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/certaintrip.css' %}"> 
+{% endblock%} {% block title %} Trip {% endblock %} {% block content %}
+<br>
+<br>
+<h1>Trip Details</h1>
 
+<form id="form1" name="form1" method="post" action="">
 
+<label id="text1">Trip ID<br />
+<input type="text" name="textfield2" id="textfield2" size="30"/>
+</label>
 
-<div class="container">
+<label id="text2">Train<br />
+<input type="text" name="textfield" id="textfield" size="30" />
+</label>
+<br>
 
+<label id="text1">From<br />
+<input type="text" name="textfield2" id="textfield2" size="30" />
+</label>
 
-                    <div class="row justify-content-start" style="padding-top:10px;">
-<h1>Trip details</h1>
+<label id="text2">To<br />
+<input type="text" name="textfield" id="textfield" size="30" />
+</label>
 
+<br>
 
-                </div>
-                <div class="row justify-content-start" style="padding-top:10px;">
+<label id="text1">Depture Time<br />
+<input type="text" name="textfield2" id="textfield2" size="30"/>
+</label>
 
-                <div class="col" style="padding-top:10px;">
-<label>Trip ID</label>
+<label id="text2">Arrival Time<br />
+<input type="text" name="textfield" id="textfield" size="30"/>
+</label>
 
+<br>
 
+<label id="text1">Available Seats<br />
+<input type="text" name="textfield2" id="textfield2" size="30"/>
+</label>
 
-                </div>
-                <div class="col" style="padding-top:10px;">
-<label>Train</label>
+<label id="text2">Cost<br/>
+<input type="text" name="textfield" id="textfield" size="30"/>
+</label>
 
+</form>
 
-
-                </div>
-                </div>
-                <div class="row justify-content-start" style="padding-top:10px;">
-
-                <div class="col" style="padding-top:10px;">
-<input class="form-control"></input>
-
-
-                </div>
-                <div class="col" style="padding-top:10px;">
-<input class="form-control"></input>
-
-
-                </div>
-                </div>
-                <div class="row justify-content-start" style="padding-top:10px;">
-
-                <div class="col" style="padding-top:10px;">
-<label>From</label>
-
-
-
-                </div>
-                <div class="col" style="padding-top:10px;">
-<label>To</label>
-
-
-
-                </div>
-                </div>
-                <div class="row justify-content-start" style="padding-top:10px;">
-
-                <div class="col" style="padding-top:10px;">
-<input class="form-control"></input>
-
-
-                </div>
-                <div class="col" style="padding-top:10px;">
-<input class="form-control"></input>
-
-
-                </div>
-                </div>
-                <div class="row justify-content-start" style="padding-top:10px;">
-
-                <div class="col" style="padding-top:10px;">
-<label>Departure Time</label>
-
-
-
-                </div>
-                <div class="col" style="padding-top:10px;">
-<label>Arrival Time</label>
-
-
-
-                </div>
-                </div>
-                <div class="row justify-content-start" style="padding-top:10px;">
-
-                <div class="col" style="padding-top:10px;">
-<input class="form-control"></input>
-
-
-                </div>
-                <div class="col" style="padding-top:10px;">
-<input class="form-control"></input>
-
-
-                </div>
-                </div>
-                <div class="row justify-content-start" style="padding-top:10px;">
-
-                <div class="col" style="padding-top:10px;">
-<label>Available Seats</label>
-
-
-
-                </div>
-                <div class="col" style="padding-top:10px;">
-<label>Cost</label>
-
-
-
-                </div>
-                </div>
-                <div class="row justify-content-start" style="padding-top:10px;">
-
-                <div class="col" style="padding-top:10px;">
-<input class="form-control"></input>
-
-
-                </div>
-                <div class="col" style="padding-top:10px;">
-<input class="form-control"></input>
-
-
-                </div>
-                </div>
-                <div class="row justify-content-center" style="padding-top:10px;">
-                    <label>Payment method</label>
-                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; 
-<label><input type="radio" />Cash</label>
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
-<label><input type="radio" />Credit card</label>
-
-
-                </div>
-                <div class="row justify-content-end" style="padding-top:10px;">
-<button class="btn btn-primary">Book</button>
-
-
-                </div>
-
-
+<div>
+<p>Payment method: </p> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+<input type="radio" > <label for="cash" class="cash"> Cash</label> &nbsp &nbsp &nbsp
+<input type="radio" > <label for="credit_card" class="credit_card"> Credit Card</label>
 </div>
-
-
-
-    </div>
+<br>
+<br>
+<br>
+<div class="container">
+<div class="vertical-center">
+<input type="submit" value="Book" id="submit">
+</div>
+<div>
 {% endblock content %}

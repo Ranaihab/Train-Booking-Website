@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.trains p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
+    color: whitesmoke;
+    text-align: center;
+    padding-top: 0.5px;
+}
+
+.trains {
+    top: 50%;
+    margin-left: 25%;
+    background: rgba(51, 46, 45, 0.63);
+    width: 800px;
+    height: 400px;
+}
+
+table,
+th,
+td {
+    margin-top: -3%;
+    border: 1px solid black;
+    table-layout: fixed;
+    text-align: center;
+}
+
+th {
+    width: 133.3px;
+    height: 40px;
+    font-size: 20px;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+td {
+    width: 114.28px;
+    height: 40px;
+    font-size: 16px;
+    color: whitesmoke;
+}

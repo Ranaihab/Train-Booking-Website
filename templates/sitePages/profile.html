@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %} 
+<link rel="stylesheet" href="{% static 'css/homePage.css' %}">
+{% endblock%}
+
+{% block title %} Profile {% endblock %}
+{% block content %} 
+<form id="form1" name="form1" method="post" action="">
+
+     <h1>Profile</h1>
+ <label id="text1">First Name <br />
+   <input type="text" name="textfield2" id="textfield2" size ="30" />
+ </label>
+
+ <label id="text2">Last Name<br />
+   <input type="text" name="textfield" id="textfield" size ="30" />
+ </label>
+
+<label id="text1">Email <br />
+   <input type="Email" name="textfield2" id="textfield2" size ="30"/>
+ </label>
+
+ <label id="text2">Phone Number<br />
+   <input type="Phone" name="textfield" id="textfield" size ="30" />
+ </label>
+
+ <label id="text1">Password<br />
+   <input type="Password" name="textfield" id="textfield" size ="30"/>
+   </label>
+   
+
+
+</form>
+ <div class="row">
+		<div class="center">
+
+		<button type="submit">Save Changes</button>
+		&nbsp; &nbsp; &nbsp;
+		<a href ="Home.html" target="blank">
+		<button type="button">Back to Home</button>
+	</a>
+	</div>
+	</div>
+{% endblock content %}

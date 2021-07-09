@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %} 
+<link rel="stylesheet" href="{% static 'css/trains.css' %}">
+{% endblock%}
+
+{% block title %} Trains {% endblock %}
+{% block content %} 
+
+<div class="trains">
+    <p>Trains</p>
+    <table>
+        
+        <tr>
+            <th>ID</th>
+            <th>Trip</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Day</th>
+            <th>Departure Time</th>
+            <th>Arrival Time</th>
+            <th>Seats</th>
+            <th>Cost</th>
+        </tr>
+        <tr id="notrip">
+            <td colspan="9">No Trips Available</td>
+        </tr>
+        
+    </table>
+</div>
+{% endblock content %}

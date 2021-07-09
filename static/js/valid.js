@@ -12,12 +12,6 @@ function valid(form) {
         return false;
     }
 
-    if (form.email.value == "") {
-        alert("Please enter email");
-        form.email.focus();
-        return false;
-    }
-
     if (form.pass.value != "") {
         if (form.pass.value.length < 8) {
             alert("Error: Password must contain at least eight characters!");
@@ -30,8 +24,8 @@ function valid(form) {
             form.pass.focus();
             return false;
         }
-        re = /[a-z]/;
-        if (!re.test(form.pass.value)) {
+        be = /[a-z]/;
+        if (!be.test(form.pass.value)) {
             alert("Error: password must contain at least one character (a-z)!");
             form.pass.focus();
             return false;
@@ -44,8 +38,25 @@ function valid(form) {
         return false;
     }
 
-    alert("You entered a valid password: " + form.pass.value);
+    if (form.email.value != "") {
+        if (form.email.value.length < 8) {
+            alert("Error: Email must contain at least eight characters");
+            form.email.focus();
+            return false;
+        }
+        at = '@';
+        dot = '.';
+        if (!at.test(form.email.value) || !dot.test(form.email.value)) {
+            alert("Error: enter a correct email ");
+            form.email.focus();
+            return false;
+        }
+
+
+    } else {
+        alert("Error: Please enter an email");
+        form.pass.focus();
+        return false;
+    }
     return true;
-
-
 }

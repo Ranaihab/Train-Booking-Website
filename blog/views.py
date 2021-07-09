@@ -12,3 +12,4 @@ def signIn(request):
 @never_cache
 def signUp(request):
     return render(request, 'registrationPages/SignUp.html')
+
