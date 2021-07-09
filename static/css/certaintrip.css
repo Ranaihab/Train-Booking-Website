@@ -1,16 +1,64 @@
-.row justify-content-start{
-    padding-top: 10px;
-
-}
-
-.col{
-    padding-top: 10px;
-}
-
-.row justify-content-center{
-    padding-top:10px;
-}
-
-.row justify-content-end{
-    padding-top:10px;
-}
+form {
+    width:600px;
+  }
+  
+  #text1 {
+    float:right;
+    color: white;
+    font-size: 17px;
+  }
+  
+  #text2 {
+    float:left;
+    color: white;
+    font-size: 17px;
+  }
+  
+  h1{
+    color: white;
+  }
+  
+  body{
+    background-image: url("train.jpeg");
+  }
+  
+  p{
+    display: inline-block;
+    color: white;
+    font-size: 17px;
+  
+  }
+  
+  
+  #submit{
+  border:none;
+  padding: 20px 30px;
+  text-align: center;
+  display: inline-block;
+  font-size: 18px;
+  cursor: pointer;
+  position: absolute;
+  border-radius: 4px;
+  }
+  
+  .container {
+    position: relative;
+  }
+  
+  .vertical-center {
+    margin: 0;
+    position: absolute;
+    right: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  
+  .cash{
+    color: white;
+    font-size: 17px;
+  }
+  
+  .credit_card{
+      color: white;
+      font-size: 17px;
+  }
