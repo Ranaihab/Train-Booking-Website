@@ -23,10 +23,9 @@ class Train(models.Model):
     destination = models.ForeignKey(Station, on_delete = models.CASCADE, related_name = "TrainDest",null=False)
 
     def getSource(self):
-        return self.source.id
+        return self.source
     def getDest(self):
-        return self.destination.id
-
+        return self.destination
 
 
 class Trip(models.Model):
@@ -44,9 +43,9 @@ class Trip(models.Model):
     class Meta:
         constraints = [
             models.CheckConstraint(
-                check=models.Q(source__gte = Train.getSource) and models.Q(source__lte = Train.getDest), name="sourceValid"),
+                check=models.Q(source__gte = models.F('train.source.id')) and models.Q(source__lte = models.F('train.destination.id')), name="sourceValid"),
             models.CheckConstraint(
-                check=models.Q(destination__gte = Train.getSource) and models.Q(destination__lte = Train.getDest), name="destValid")
+                check=models.Q(destination__gte = models.F('train.source.id')) and models.Q(destination__lte = models.F('train.destination.id')), name="destValid")
         ]
 
 class Book(models.Model):
