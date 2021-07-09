@@ -1,0 +1,48 @@
+body {
+    background-image: url("imgs/background4.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+form {
+    width: 600px;
+    margin: 0;
+    position: absolute;
+    top: 20%;
+    left: 20%;
+}
+
+#text1 {
+    float: left;
+    font-size: 25px;
+    color: FFFFFF;
+}
+
+#text2 {
+    float: right;
+    font-size: 25px;
+}
+
+button {
+    background-color: white;
+    border: none;
+    padding: 20px 30px;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 80%;
+    left: 40%;
+}
+
+input {
+    padding: 5px 30px;
+    border-radius: 12px;
+}
