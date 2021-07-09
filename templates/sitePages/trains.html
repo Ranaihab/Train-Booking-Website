@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 {% load static %}
-{% block head %} 
+{% block head %}
 <link rel="stylesheet" href="{% static 'css/trains.css' %}">
 {% endblock%}
 
 {% block title %} Trains {% endblock %}
-{% block content %} 
+{% block content %}
 
 <div class="trains">
     <p>Trains</p>
     <table>
-        
+
         <tr>
             <th>ID</th>
             <th>Trip</th>
@@ -25,7 +25,7 @@
         <tr id="notrip">
             <td colspan="9">No Trips Available</td>
         </tr>
-        
+
     </table>
 </div>
 {% endblock content %}

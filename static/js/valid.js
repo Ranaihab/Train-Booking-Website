@@ -38,6 +38,12 @@ function valid(form) {
         return false;
     }
 
+    if (form.pass.value != from.confrimPass.value) {
+        alert("Confirm Password should be the same as password");
+        form.pass.focus();
+        return false;
+    }
+
     if (form.email.value != "") {
         if (form.email.value.length < 8) {
             alert("Error: Email must contain at least eight characters");

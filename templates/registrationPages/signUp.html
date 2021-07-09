@@ -5,18 +5,35 @@
 
 <div class="signup">
     <div class=" container ">
-        <form onsubmit="return valid(this); " method="POST ">
-            <label for="fname "><b> First Name:</b></label>
-            <input type="text " placeholder="First Name " name="fname ">
+        <form onsubmit="return valid(this); " method="POST" action="{% url 'blog:signUpForm' %}">
+            {% csrf_token %}
+            {% if errorMsg %}
+                <p class="errorMessage">{{ errorMsg }}</p>
+            {% endif %}
+            <label for="username"><b>Username:</b></label>
+            <input type="text" placeholder="username" name="username">
+            {{ form.username }}
             <br>
-            <label for="sname "><b> Last Name:</b></label>
-            <input type="text " placeholder="Last Name " name="sname ">
+            <label for="fname"><b>First Name:</b></label>
+            <input type="text" placeholder="First Name " name="fname">
+            {{ form.fname }}
             <br>
-            <label for="email "><b> Email:</b></label>
-            <input type="email" placeholder="Email " name="email " required>
+            <label for="sname"><b>Last Name:</b></label>
+            <input type="text" placeholder="Last Name " name="sname">
+            {{ form.lname }}
             <br>
-            <label for="pass"><b> Password:</b></label>
-            <input type="password " name="pass" placeholder="Password " required>
+            <label for="email"><b>Email:</b></label>
+            <input type="email" placeholder="Email " name="email" required>
+            {{ form.email }}
+            <br>
+            <label for="pass"><b>Password:</b></label>
+            <input type="password " name="pass" placeholder="Password" required>
+            {{ form.password }}
+            <br>
+            <br>
+            <label for="confirmPass"><b>Confirm Password:</b></label>
+            <input type="password" name="confirmPass" placeholder="confirmPass" required>
+            {{ form.confirmPass }}
             <br>
             <input type="submit" class="sign" value="Sign Up">
         </form>
