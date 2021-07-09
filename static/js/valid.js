@@ -45,23 +45,19 @@ function valid(form) {
             return false;
         }
         at = '@';
-        if (!at.test(form.email.value)) {
-            alert("Error: email must contain an at character");
-            form.email.focus();
-            return false;
-        }
         dot = '.';
-        if (!dot.test(form.email.value)) {
-            alert("Error: email must contain a dot character");
-            form.email.focus();
+        if (!at.test(form.email.value) || !dot.test(form.email.value) {
+                alert("Error: enter a correct email ");
+                form.email.focus();
+                return false;
+            }
+
+
+        }
+        else {
+            alert("Error: Please enter an email");
+            form.pass.focus();
             return false;
         }
-
-
-    } else {
-        alert("Error: Please enter an email");
-        form.pass.focus();
-        return false;
+        return true;
     }
-    return true;
-}

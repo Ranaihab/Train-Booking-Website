@@ -6,7 +6,7 @@ from django.db.models.query_utils import Q
 from django.db.models import F
 """from django.contrib.postgres.fields import ArrayField"""
 
-# Create your models here.
+#Create your models here.
 class User(models.Model):
     username = models.CharField(max_length = 20, primary_key=True)
     password = models.CharField(max_length = 20)
@@ -55,3 +55,5 @@ class Book(models.Model):
     seats = IntegerField(default=-1)
     class Meta:
         unique_together = (("trip", "user","seats"),)
+        
+        
