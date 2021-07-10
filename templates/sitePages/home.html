@@ -1,45 +1,71 @@
-{% extends "base.html" %}
-{% load static %}
-{% block head %} 
+{% extends "base.html" %} {% load static %} {% block head %}
 <link rel="stylesheet" href="{% static 'css/homePage.css' %}">
-{% endblock%}
-
-{% block title %} Home {% endblock %}
-{% block content %} 
+<script src="{%static '/js/options.js'%}"></script> {% endblock%} {% block title %} Home {% endblock %} {% block content %}
 <div class="filter">
-    <label for="Filter options" >Filter By</label>
-    <select id="Filter options">
-    <option value="date">Date</option>
-    <option value="time">Time</option>
-    <option value="source">Source</option>
-    <option value="destination">Destination</option>
-     <option value="required Seats">Required Number of Seats</option>
+    <label for="Filter options"> Filter By
+        </label>
+    <select id="Filter options">  
+           
+        <option value = "date" id="da"><button onclick="date()"> Date</button> </option>
+            
+        <option value = "time" id="ti" ><button onclick="time()"> Time</button></option>
+            
+        <option value = "source" id="src"><button onclick="source()">Source</button> </option>
+             
+        <option value = "destination" id="desti"><button onclick="desti()" >Destination</button> </option>
+             
+        <option value = "required Seats"id="noOf" ><button onclick="number()"> Required Number of Seats</button></option>
+            
 
     </select>
-    <button>Filter</button>
-    
+    <div id="op1">
+        <label for="Date">Date : </label>
+        <input type="date" id="Date">
+    </div>
+    <div id="op2">
+        <label for=" time1 ">Departure Time : </label>
+        <input type="time " id="time1 ">
+        <br>
+        <label for="time2 ">Arrival Time : </label>
+        <input type="time " id="time2 ">
+    </div>
+    <div id="op3 ">
+        <label for=" source ">Source : </label>
+        <input type="text " id="source ">
+    </div>
+    <div id="op4 ">
+        <label for="destination ">Destination : </label>
+        <input type="text " id="destination ">
+    </div>
+    <div id="op5 ">
+        <label for=" no "> Required Number of Seats : </label>
+        <input type="number " id="no ">
+    </div>
+    <button> Filter</button>
+
 </div>
 
-<div class="trips">
-    <p>Trips</p>
+<div class="trips ">
+    <p> Trips</p>
     <table>
-        
         <tr>
-            <th>ID</th>
-            <th>Train</th>
-            <th>From</th>
-            <th>To</th>
-            <th>Day</th>
-            <th>Departure Time</th>
-            <th>Arrival Time</th>
-            <th>Seats</th>
-            <th>Cost</th>
+            <th> ID</th>
+            <th> Train </th>
+            <th> From</th>
+            <th> To</th>
+            <th> Day</th>
+            <th> Departure Time</th>
+            <th> Arrival Time</th>
+            <th> Seats</th>
+            <th> Cost </th>
         </tr>
-        <tr id="notrip">
-            <td colspan="9">No Trips Available</td>
+        <tr id="notrip ">
+            <td colspan="9 "> No Trips Available</td>
         </tr>
-        
+
     </table>
+    <p id="note "> Choose the ID of the trip you want to book for more details </p>
 </div>
-<label id="note">Choose the ID of the trip you want to book for more details</label>
+<div id="book "></div>
+
 {% endblock content %}
