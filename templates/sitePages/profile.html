@@ -1,40 +1,44 @@
-{% extends "base.html" %}
-{% load static %}
-{% block head %}
-<link rel="stylesheet" href="{% static 'css/homePage.css' %}">
-{% endblock%}
+{% extends "base.html" %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/Profile.css' %}">
+<script src="{% static '/js/check.js' %}"></script>
 
-{% block title %} Profile {% endblock %}
-{% block content %}
-<form id="form1" name="form1" method="post" action="">
+{ % endblock % } { % block title % } Profile { % endblock % } { % block content % }
+<form onsubmit="check(this)" id="form1" name="form1" method="POST" action="/">
 
-	<h1>Profile</h1>
-	<label id="text1">First Name <br />
-		<input type="text" name="textfield2" id="textfield2" size="30" disabled/>
-	</label>
+    <h1> Profile</h1>
+    <label id="text1">First Name <br/>
+        <input type="text" name="textfield2" id="textfield2"> 
+      </label>
 
-	<label id="text2">Last Name<br />
-		<input type="text" name="textfield" id="textfield" size="30" disabled/>
-	</label>
+    <label id="text2"> Last Name
+        <br />
+        <input type="text" name="textfield" id="textfield">
+            </label>
 
-	<label id="text1">Email <br />
-		<input type="Email" name="textfield2" id="textfield2" size="30" disabled/>
-	</label>
+    <label id="text1"> Email
+        <br />
+        <input type="Email" name="textfield3" id="textfield2" >
+    </label>
 
-	<label id="text1">Password<br />
-		<input type="Password" name="textfield" id="textfield" size="30" disabled/>
-	</label>
+    <label id="text2"> Phone Number
+        <br />
+        <input type="Phone" name="textfield4" id="textfield" />
+        </label>
 
+    <label id="text1"> Password
+        <br />
+        <input type="Password" name="textfield5" id="textfield"  />
+        </label>
+    <br>
+    <button type="submit" id="b1"> Save Changes</button>
 
 </form>
 <div class="row">
-	<div class="center">
-
-		<button type="submit">Save Changes</button>
-		&nbsp; &nbsp; &nbsp;
-		<a href="Home.html" target="blank">
-			<button type="button">Back to Home</button>
-		</a>
-	</div>
+    <div class="center">
+        <a href="home.html" target="blank">
+            <button type="button"> Back to Home</button>
+        </a>
+    </div>
 </div>
-{% endblock content %}
+
+{ % endblock % }
