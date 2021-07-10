@@ -1,13 +1,14 @@
-{% extends "base.html" %} {% load static %} {% block head %}
-<link rel="stylesheet" href="{% static 'css/signIn.css' %}"> {% endblock%} {% block title %} Sign In {% endblock %} {% block content %}
+{% extends "base.html" %} 
+{% load static %} 
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/signIn.css' %}"> 
+{% endblock%} {% block title %} Sign In {% endblock %} {% block content %}
 <div class="signin">
-    <div id="container">
+    <form method="POST" action="registrationPages/signIn">
         <label class="mainLabels">Username :</label>
         <input type="text" placeholder="Username"><br>
         <label class="mainLabels">Password :</label>
-        <input type="password" placeholder="Password" id="pass" name="password" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
-    </div>
-    <form method="POST">
+        <input type="password" placeholder="Password" id="pass" name="password" minlength="8">
         <div class="rememberMe">
             <input class='check' type="checkbox" checked="checked" name="remember">
             <label>Remember Password</label><br>
@@ -17,7 +18,7 @@
 
     <div class="notAcc">
         <p class="text-muted">Don't have an account?
-            <a class="ml-2" href="{% url 'signUp' %}">Sign up</a>
+            <a class="ml-2" href="{% url 'blog:signUp' %}">Sign up</a>
         </p>
     </div>
     <!--<div id="msgInvalidPass">
