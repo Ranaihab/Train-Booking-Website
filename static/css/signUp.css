@@ -12,17 +12,20 @@ body {
 
 .signup {
     width: 40%;
-    margin-top: 15%;
+    margin-top: 8%;
     margin-left: 30%;
     margin-right: 5%;
     background: rgba(51, 46, 45, 0.63);
     text-align: center;
 }
 
+#adm{
+    margin-right: 12px;
+}
 form {
     text-align: center;
     align-items: center;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
 }
 
 label {
@@ -46,6 +49,7 @@ input {
     margin-bottom: 20px;
     padding-top: 10px;
     color: black;
+    text-align: center;
 }
 
 input::placeholder {

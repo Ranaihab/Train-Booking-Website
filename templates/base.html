@@ -11,11 +11,11 @@
 <body style="background: url('/static/imgs/background4.png'); background-size: cover; background-repeat:no-repeat; overflow:hidden;">
     <!--Top Nav Bar-->
     <nav class="navBar">
-        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'blog:home' %}">Home</a>
         <a href="#about">My Trips</a>
-        <a id="signIn" href="{% url 'signIn' %}">Sign In</a>
+        <a id="signIn" href="{% url 'blog:signIn' %}">Sign In</a>
         <span id="sp1">/</span>
-        <a href="{% url 'signUp' %}">Sign Up</a>
+        <a href="{% url 'blog:signUp' %}">Sign Up</a>
     </nav>
     <!--Body-->
     {% block content %} {% endblock %}

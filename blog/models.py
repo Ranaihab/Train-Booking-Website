@@ -3,7 +3,6 @@ from django.db.models.fields import IntegerField
 from django.db.models.fields.related import ForeignKey
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
-from django.contrib.auth.models import (BaseUserManager, AbstractBaseUser)
 
 
 #Create your models here.
