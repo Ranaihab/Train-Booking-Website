@@ -4,11 +4,12 @@
 <link rel="stylesheet" href="{% static 'css/signIn.css' %}"> 
 {% endblock%} {% block title %} Sign In {% endblock %} {% block content %}
 <div class="signin">
-    <form method="POST" action="registrationPages/signIn">
+    <form method="POST" action="{% url 'blog:signInForm' %}">
+        {% csrf_token %}
         <label class="mainLabels">Username :</label>
-        <input type="text" placeholder="Username"><br>
+        <input type="text" placeholder="Username" name="username"><br>
         <label class="mainLabels">Password :</label>
-        <input type="password" placeholder="Password" id="pass" name="password" minlength="8">
+        <input type="password" placeholder="Password" id="pass" name="password">
         <div class="rememberMe">
             <input class='check' type="checkbox" checked="checked" name="remember">
             <label>Remember Password</label><br>

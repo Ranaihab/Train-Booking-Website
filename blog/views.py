@@ -3,7 +3,7 @@ from django.views.decorators.cache import never_cache
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 
 
 @never_cache
@@ -47,27 +47,32 @@ def signUpForm(request):
             else:
                 user.is_staff = False
             user.save()
-
-            #login(request, user)
+            
+            login(request, user)
+            return redirect('/')
 
             # redirect to accounts page:
             #return HttpResponseRedirect('/mymodule/account')
-    template = 'sitePages/home.html'
-    return render(request, template)
+    
 
 
 def signInForm(request):
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
+        username = request.POST.get('username')
+        password = request.POST.get('password')
         user = authenticate(username=username, password=password)
         if user is not None:
             if user.is_active:
                 login(request, user)
-                # Redirect to index page.
-                return HttpResponseRedirect("sitePages/")
+                return redirect('/')
             else:
                 # Return a 'disabled account' error message
                 return HttpResponse("You're account is disabled.")
-        else
-            return render('errorMsg':'Wrong username or password')
+        else:
+            return render(request, 'registrationPages/signIn.html', {'errorMsg': 'Wrong username or password'})
+
+
+
+def logOut(request):
+    request.session.flush()
+    return redirect('/')

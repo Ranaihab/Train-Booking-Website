@@ -13,10 +13,19 @@
     <!--Top Nav Bar-->
     <nav class="navBar">
         <a href="{% url 'blog:home' %}">Home</a>
-        <a href="#about">My Trips</a>
-        <a id="signIn" href="{% url 'blog:signIn' %}">Sign In</a>
-        <span id="sp1">/</span>
-        <a href="{% url 'blog:signUp' %}">Sign Up</a>
+        {% if user.is_authenticated %}
+            {% if user.is_superuser %}
+                <a href="{% url 'admin:index' %}">Admin Page</a>
+            {% else %}
+                <a href="#about">My Trips</a>
+            {% endif %}
+            <a href="{% url 'blog:home' %}">{{ user.username }}</a>
+            <a href="{% url 'blog:logOut' %}">Log out</a>
+        {% else %}
+            <a id="signIn" href="{% url 'blog:signIn' %}">Sign In</a>
+            <span id="sp1">/</span>
+            <a href="{% url 'blog:signUp' %}">Sign Up</a>
+        {% endif %}
     </nav>
     <!--Body-->
     {% block content %} {% endblock %}
