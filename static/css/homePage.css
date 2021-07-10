@@ -8,8 +8,8 @@
         align-items: center;
         margin-top: 3%;
         background: rgba(51, 46, 45, 0.63);
-        width: 350px;
-        height: 100px;
+        width: 320px;
+        height: 250px;
         padding-top: 20px;
     }
     
@@ -21,7 +21,6 @@
     
     .filter input {
         border: 2px solid black;
-        width: 200px;
         margin-bottom: 10px;
     }
     
@@ -47,11 +46,14 @@
     }
     
     .trips {
-        top: 50%;
-        margin-left: 25%;
+        /*top: 50%;*/
+        margin-top: 20%;
+        margin-left: 40%;
         background: rgba(51, 46, 45, 0.63);
         width: 800px;
         height: 400px;
+        margin-top: 40px;
+        overflow: auto;
     }
     
     table,
@@ -77,14 +79,6 @@
         font-size: 16px;
         color: whitesmoke;
     }
-    /*#Book {
-    height: 35px;
-    width: 100px;
-    margin-left: 48%;
-    margin-top: 20px;
-    font-size: 17px;
-    font-weight: bold;
-}*/
     
     #note {
         color: #0C0C0F;

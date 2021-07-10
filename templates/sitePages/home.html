@@ -1,9 +1,24 @@
 {% extends "base.html" %} {% load static %} {% block head %}
 <link rel="stylesheet" href="{% static 'css/homePage.css' %}">
 <script src="{%static '/js/options.js'%}"></script> {% endblock%} {% block title %} Home {% endblock %} {% block content %}
+
 <div class="filter">
-    <label for="Filter options"> Filter By</label>
+    <span><label for="Filter options" id="label1"> Filter By</label></span>
+  <br> <br>
+    
     <div id="Filter options">
+     
+     <input type="checkbox" id="option1" name="option1" value="day">
+     <label for="option1" id="opt"> Date</label><br>
+     <input type="checkbox" id="option2" name="option2" value="SD">
+     <label for="option2" id="opt"> Source-Destination</label><br>
+     <input type="checkbox" id="option3" name="option3" value="time">
+     <label for="option1" id="opt"> Time</label><br>
+     <input type="checkbox" id="option4" name="option4" value="numOfSeats">
+     <label for="option1" id="opt"> Required Number of Seats</label><br>
+     </div>
+     
+    <!--<div id="Filter options">
 
         <button value="date" id="da" onclick="date()"> Date</button>
 
@@ -40,12 +55,12 @@
             <label for=" no "> Required Number of Seats : </label>
             <input type="number " id="no ">
         </div>
-    </div>
+    </div>-->
     <button> Filter</button>
 
 </div>
 
-<div class="trips ">
+<div class="trips" >
     <p> Trips</p>
     <table>
         <tr>
@@ -64,8 +79,11 @@
         </tr>
 
     </table>
-    <p id="note "> Choose the ID of the trip you want to book for more details </p>
+    
+
+
 </div>
+<p id="note "> Choose the ID of the trip you want to book for more details </p>
 <div id="book "></div>
 
 {% endblock content %}
