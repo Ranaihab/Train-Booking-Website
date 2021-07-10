@@ -10,4 +10,5 @@ urlpatterns = [
     path('Sign-In/', views.signIn , name='signIn'),
     url(r'^sign-up/$', views.signUpForm, name='signUpForm'),
     url(r'^login/$', views.signInForm, name='signInForm'),
+    url(r'^logout/$', views.logOut, name='logOut'),
 ]
