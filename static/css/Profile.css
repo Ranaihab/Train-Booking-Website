@@ -1,7 +1,5 @@
 body {
-    background-image: url("imgs/background4.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+
     color: white;
 }
 
@@ -14,13 +12,13 @@ form {
 }
 
 #text1 {
-    float: left;
     font-size: 25px;
     color: FFFFFF;
+    float: left;
 }
 
 #text2 {
-    float: right;
+    float: left;
     font-size: 25px;
 }
 
@@ -45,4 +43,7 @@ button {
 input {
     padding: 5px 30px;
     border-radius: 12px;
+    color:black;
+    text-align: center;
+    font-size: 20px;
 }

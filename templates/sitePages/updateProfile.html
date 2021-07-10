@@ -10,34 +10,34 @@
         <input type="text" name="uname" id="textfield" value="{{user.username}}"> 
       </label>
     <label id="text1">First Name <br/>
-        <input type="text" name="fname" id="textfield2" value={{}}> 
-      </label>
+        <input type="text" name="fname" id="textfield2"  value="{{user.first_name}}"> 
+      </label><br>
 
     <label id="text2"> Last Name
         <br />
-        <input type="text" name="lname" id="textfield" value={{}}>
+        <input type="text" name="lname" id="textfield" value="{{user.last_name}}">
             </label>
 
     <label id="text1"> Email
         <br />
-        <input type="Email" name="email" id="textfield2" value={{}}>
+        <input type="Email" name="email" id="textfield2" value="{{user.email}}">
     </label>
 
    
 
     <label id="text1"> Password
         <br />
-        <input type="Password" name="pass" id="textfield" value={{}} >
+        <input type="Password" name="pass" id="textfield" value="{{user.password}}">
         </label>
     <br>
+
     <button type="submit" id="b1"> Save</button>
-    <button type="submit" id="b1"> Cancel</button>
+    <buttonid="b1"><a href="{% url 'blog:profile' user.username %}">Cancel</a></button>
 
 </form>
 <div class="row">
     <div class="center">
-    <button type="submit" id="b1"> Save</button>
-    <button type="submit" id="b1"> Cancel</button>
+    
     </div>
 </div>
 

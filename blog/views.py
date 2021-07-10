@@ -101,5 +101,5 @@ def updateProfile(request, username):
     user.save()           
 
 
-def profile(request):
-    return render(request, "sitePages/profile.html")
+def profile(request, username):
+    return render(request, "sitePages/profile.html", {'username': username})
