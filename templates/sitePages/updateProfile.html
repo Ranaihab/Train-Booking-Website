@@ -7,35 +7,37 @@
 
     <h1> Profile</h1>
 	<label id="text1">Username <br/>
-        <input type="text" name="uname" id="textfield"  disabled> 
+        <input type="text" name="uname" id="textfield" value="{{user.username}}"> 
       </label>
     <label id="text1">First Name <br/>
-        <input type="text" name="fname" id="textfield2"  disabled> 
+        <input type="text" name="fname" id="textfield2" value={{}}> 
       </label>
 
     <label id="text2"> Last Name
         <br />
-        <input type="text" name="lname" id="textfield"  disabled>
+        <input type="text" name="lname" id="textfield" value={{}}>
             </label>
 
     <label id="text1"> Email
         <br />
-        <input type="Email" name="email" id="textfield2"  disabled>
+        <input type="Email" name="email" id="textfield2" value={{}}>
     </label>
 
    
 
     <label id="text1"> Password
         <br />
-        <input type="Password" name="pass" id="textfield" disabled>
+        <input type="Password" name="pass" id="textfield" value={{}} >
         </label>
     <br>
-    
+    <button type="submit" id="b1"> Save</button>
+    <button type="submit" id="b1"> Cancel</button>
 
 </form>
 <div class="row">
     <div class="center">
-        <button type="submit" id="b1">update</button>
+    <button type="submit" id="b1"> Save</button>
+    <button type="submit" id="b1"> Cancel</button>
     </div>
 </div>
 

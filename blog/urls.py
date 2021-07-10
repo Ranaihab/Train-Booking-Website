@@ -11,4 +11,6 @@ urlpatterns = [
     url(r'^sign-up/$', views.signUpForm, name='signUpForm'),
     url(r'^login/$', views.signInForm, name='signInForm'),
     url(r'^logout/$', views.logOut, name='logOut'),
+    url('updateProfile/<username>', views.updateProfile, name='updateProfile'),
+    url('profile', views.profile, name='profile')
 ]

@@ -76,3 +76,30 @@ def signInForm(request):
 def logOut(request):
     request.session.flush()
     return redirect('/')
+
+def updateProfile(request, username):
+    form=request.POST
+    template='sitePages/profile.html'
+    user=User.objects.filter(username=username)
+    if user.username!=request.POST.get('uname'):
+        if User.objects.filter(username=request.POST.get('uname')).exists():
+            return render(request, template, {'form': form, 'errorMsg': 'Username is already taken.'})
+        else:
+            user.username=request.POST.get('uname')
+
+    if user.email!=request.POST.get('email'):
+        if User.objects.filter(email=request.POST.get('email')).exists():
+            return render(request, template, {'form': form, 'errorMsg': 'Email is already taken.'})
+        else:
+            user.email=request.POST.get('email')
+    if user.first_name!=request.POST.get('fname'): 
+        user.first_name=request.POST.get('fname') 
+    if user.last_name!=request.POST.get('lname'): 
+        user.last_name=request.POST.get('lname')  
+    if user.password!=request.POST.get('pass'): 
+        user.password=request.POST.get('pass')       
+    user.save()           
+
+
+def profile(request):
+    return render(request, "sitePages/profile.html")
