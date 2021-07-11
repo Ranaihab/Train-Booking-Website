@@ -8,17 +8,52 @@
     
     <div id="Filter options">
      
-     <input type="checkbox" id="option1" name="option1" value="day">
-     <label for="option1" id="opt"> Date</label><br>
-     <input type="checkbox" id="option2" name="option2" value="SD">
-     <label for="option2" id="opt"> Source-Destination</label><br>
-     <input type="checkbox" id="option3" name="option3" value="time">
-     <label for="option1" id="opt"> Time</label><br>
-     <input type="checkbox" id="option4" name="option4" value="numOfSeats">
-     <label for="option1" id="opt"> Required Number of Seats</label><br>
-     </div>
-     
-    <!--<div id="Filter options">
+        <label for="option1"> Date</label>
+        <input type="date" id="option1" name="option1" ><br>
+
+        <label for="option2"> Source</label>
+        <input type="text" id="option2" name="option2" ><br>
+
+        <label for="option3"> Destination</label>
+        <input type="text" id="option3" name="option3" ><br>
+        
+        <label for="option4"> Time</label>
+        <input type="time" id="option4" name="option4"><br>
+        
+        <label for="option5"> Number of Seats</label>
+        <input type="text" id="option5" name="option5"><br>
+    
+    </div>
+    <button> Filter</button>
+
+</div>
+
+<div class="trips" >
+    <p> Trips</p>
+    <table>
+        <tr>
+            <th> ID</th>
+            <th> Train </th>
+            <th> From</th>
+            <th> To</th>
+            <th> Day</th>
+            <th> Departure Time</th>
+            <th> Arrival Time</th>
+            <th> Seats</th>
+            <th> Cost </th>
+        </tr>
+        <tr id="notrip ">
+            <td colspan="9 "> No Trips Available</td>
+        </tr>
+
+    </table>
+</div>
+
+
+
+{% endblock content %}
+
+<!--<div id="Filter options">
 
         <button value="date" id="da" onclick="date()"> Date</button>
 
@@ -54,36 +89,4 @@
         <div id="op5 ">
             <label for=" no "> Required Number of Seats : </label>
             <input type="number " id="no ">
-        </div>
-    </div>-->
-    <button> Filter</button>
-
-</div>
-
-<div class="trips" >
-    <p> Trips</p>
-    <table>
-        <tr>
-            <th> ID</th>
-            <th> Train </th>
-            <th> From</th>
-            <th> To</th>
-            <th> Day</th>
-            <th> Departure Time</th>
-            <th> Arrival Time</th>
-            <th> Seats</th>
-            <th> Cost </th>
-        </tr>
-        <tr id="notrip ">
-            <td colspan="9 "> No Trips Available</td>
-        </tr>
-
-    </table>
-    
-
-
-</div>
-<p id="note "> Choose the ID of the trip you want to book for more details </p>
-<div id="book "></div>
-
-{% endblock content %}
+        </div>-->
