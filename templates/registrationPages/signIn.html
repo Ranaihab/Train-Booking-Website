@@ -6,6 +6,9 @@
 <div class="signin">
     <form method="POST" action="{% url 'blog:signInForm' %}">
         {% csrf_token %}
+        {% if errorMsg %}
+        <p class="errorMessage" style="color: red;">{{ errorMsg }}</p>
+        {% endif %}
         <label class="mainLabels">Username :</label>
         <input type="text" placeholder="Username" name="username"><br>
         <label class="mainLabels">Password :</label>

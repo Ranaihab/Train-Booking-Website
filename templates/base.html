@@ -17,7 +17,7 @@
             {% if user.is_superuser %}
                 <a href="{% url 'admin:index' %}">Admin Page</a>
             {% else %}
-                <a href="#about">My Trips</a>
+                <a href="{% url 'blog:myTrips' %}">My Trips</a>
             {% endif %}
             <a href="{% url 'blog:profile' user.username %}">{{ user.username }}</a>
             <a href="{% url 'blog:logOut' %}">Log out</a>

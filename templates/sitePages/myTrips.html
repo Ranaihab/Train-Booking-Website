@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/myTrips.css' %}">
+{% endblock%}
+
+{% block title %} My Trips {% endblock %}
+{% block content %}
+
+<div class="trips">
+    <p>My Trips</p>
+    <table>
+
+        <tr>
+            <th>ID</th>
+            <th>Trip</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Day</th>
+            <th>Departure Time</th>
+            <th>Arrival Time</th>
+            <th>Seats</th>
+            <th>Cost</th>
+        </tr>
+
+        {% for book in Book.Objects.filter(user = user.username) %}
+        {% if book.trip not in x %}
+            x.add(book.trip)
+            <tr>
+                <td>{{book.trip}}</td>
+                {% with trip = Trip.object.filter(id = book.trip) %}
+                <td>{{trip.train}}</td>
+                <td>{{trip.source}}</td>
+                <td>{{trip.destination}}</td>
+                <td>{{trip.day}}</td>
+                <td>{{trip.start_Time}}</td>
+                <td>{{trip.end_Time}}</td>
+                <td>book.seats</td>
+                <td>{{trip.price}}</td>
+                {% endwith %}
+            </tr>
+        {% endif %}
+        {% endfor %}
+        <tr id="notrip">
+            <td colspan="9">No Trips Available</td>
+        </tr>
+
+    </table>
+</div>
+{% endblock content %}

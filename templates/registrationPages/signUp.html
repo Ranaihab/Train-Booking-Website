@@ -7,7 +7,7 @@
     <form onsubmit="return valid(this); " method="POST" action="{% url 'blog:signUpForm' %}">
         {% csrf_token %}
         {% if errorMsg %}
-        <p class="errorMessage">{{ errorMsg }}</p>
+        <p class="errorMessage" style="color: red;">{{ errorMsg }}</p>
         {% endif %}
         <label for="username"><b>Username:</b></label>
         <input type="text" placeholder="username" name="username">
