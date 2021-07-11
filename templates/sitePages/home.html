@@ -1,46 +1,47 @@
 {% extends "base.html" %} {% load static %} {% block head %}
 <link rel="stylesheet" href="{% static 'css/homePage.css' %}">
-<script src="{%static '/js/options.js'%}"></script> {% endblock%} {% block title %} Home {% endblock %} {% block content %}
+<script src="{%static '/js/options.js'%}"></script> {% endblock%} {% block title %} Home {% endblock %}
+{% block content %}
 
 <div class="filter">
     <span><label for="Filter options" id="label1"> Filter By</label></span>
-  <br> <br>
-    
+    <br> <br>
+
     <div id="Filter options">
-     
+
         <label for="option1"> Date</label>
-        <input type="date" id="option1" name="option1" ><br>
+        <input type="date" id="option1" name="option1"><br>
 
         <label for="option2"> Source</label>
-        <input type="text" id="option2" name="option2" ><br>
+        <input type="text" id="option2" name="option2"><br>
 
         <label for="option3"> Destination</label>
-        <input type="text" id="option3" name="option3" ><br>
-        
+        <input type="text" id="option3" name="option3"><br>
+
         <label for="option4"> Time</label>
         <input type="time" id="option4" name="option4"><br>
-        
+
         <label for="option5"> Number of Seats</label>
         <input type="text" id="option5" name="option5"><br>
-    
+
     </div>
     <button> Filter</button>
 
 </div>
 
-<div class="trips" >
+<div class="trips">
     <p> Trips</p>
     <table>
         <tr>
-            <th> ID</th>
-            <th> Train </th>
-            <th> From</th>
-            <th> To</th>
-            <th> Day</th>
-            <th> Departure Time</th>
-            <th> Arrival Time</th>
-            <th> Seats</th>
-            <th> Cost </th>
+            <th>ID</th>
+            <th>Train</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Day</th>
+            <th>Departure Time</th>
+            <th>Arrival Time</th>
+            <th>Seats</th>
+            <th>Cost</th>
         </tr>
         <tr id="notrip ">
             <td colspan="9 "> No Trips Available</td>

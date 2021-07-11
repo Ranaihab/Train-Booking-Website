@@ -1,10 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.views.decorators.cache import never_cache
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect, HttpResponse
-
+from .models import Book
 
 @never_cache
 def home(request):
@@ -104,3 +104,8 @@ def profile(request, username):
 def myTrips(request):
     return render(request, "sitePages/myTrips.html")
 
+def cancelTrip(request, id):
+    obj = Book.objects.filter(id=id)
+    if request.method =="POST":
+        obj.delete()
+        return HttpResponseRedirect('/')     

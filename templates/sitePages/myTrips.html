@@ -3,14 +3,19 @@
 {% load tags %}
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/myTrips.css' %}">
+<script>
+    function removeRow(idx) {
+        document.getElementById(idx).remove();
+    }
+</script>
 {% endblock%}
 
 {% block title %} My Trips {% endblock %}
 {% block content %}
 
-<div class="trips" >
+<div class="trips" style="overflow: auto;">
     <p>My Trips</p>
-    <table>
+    <table id="tripsTable">
 
         <tr>
             <th>ID</th>
@@ -23,12 +28,13 @@
             <th>Seats</th>
             <th>Cost/Seat</th>
             <th>Total Cost</th>
+            <th>Cancel</th>
         </tr>
         {% books user.id as books %}
 
         {% for book in books %}
 
-            <tr>
+            <tr id = "{{book.trip.id}}">
                 <td>{{book.trip.id}}</td>
                 <td>{{ book.trip.train.id }}</td>
                 <td>{{book.trip.source.stationName}}</td>
@@ -41,15 +47,18 @@
                         <option selected hidden>Seats</option>
                         {% bookSeat book as seats %}
                         {% for seat in seats %}
-                        <option disabled>{{seat.id}}</option>
+                            <option disabled>{{seat.id}}</option>
                         {% endfor %}
                     </select>
                 </td>
                 <td>{{book.trip.price}}</td>
                 {% bookPrice book as pr %}
                 <td>{{pr}}</td>
-                
-
+                <td>
+                    <form method="POST"  action="{%url 'blog:cancelTrip' book.id %}">
+                        {% csrf_token %}
+                        <input type="submit" value = "Cancel"/>
+                    </form>
             </tr>
 
 
@@ -58,65 +67,6 @@
             <td colspan="10">No Trips Available</td>
         </tr>
         {% endfor %}
-        
-        <tr id="notrip">
-            <td colspan="9">No Trips Available</td>
-        </tr>
-        <tr id="notrip">
-            <td colspan="9">No Trips Available</td>
-        </tr>
-        <tr id="notrip">
-            <td colspan="9">No Trips Available</td>
-        </tr>
-        <tr id="notrip">
-            <td colspan="9">No Trips Available</td>
-        </tr>
-        <tr id="notrip">
-            <td colspan="9">No Trips Available</td>
-        </tr>
-        <tr id="notrip">
-            <td colspan="9">No Trips Available</td>
-        </tr>
-        <tr id="notrip">
-            <td colspan="9">No Trips Available</td>
-        </tr>
-        <tr id="notrip">
-            <td colspan="9">No Trips Available</td>
-        </tr>
-        <tr id="notrip">
-            <td colspan="9">No Trips Available</td>
-        </tr>
-        <tr id="notrip">
-            <td colspan="9">No Trips Available</td>
-        </tr>
-        <tr id="notrip">
-            <td colspan="9">No Trips Available</td>
-        </tr>
-        <tr id="notrip">
-            <td colspan="9">No Trips Available</td>
-        </tr>
-        <tr id="notrip">
-            <td colspan="9">No Trips Available</td>
-        </tr>
-        <tr id="notrip">
-            <td colspan="9">No Trips Available</td>
-        </tr>
-        <tr id="notrip">
-            <td colspan="9">No Trips Available</td>
-        </tr>
-        <tr id="notrip">
-            <td colspan="9">No Trips Available</td>
-        </tr>
-        <tr id="notrip">
-            <td colspan="9">No Trips Available</td>
-        </tr>
-        <tr id="notrip">
-            <td colspan="9">No Trips Available</td>
-        </tr>
-        <tr id="notrip">
-            <td colspan="9">18   No Trips Available</td>
-        </tr>
-        
 
     </table>
 </div>
