@@ -103,3 +103,4 @@ def profile(request, username):
 
 def myTrips(request):
     return render(request, "sitePages/myTrips.html")
+

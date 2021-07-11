@@ -6,6 +6,9 @@ from django.contrib.auth.models import User
 
 
 #Create your models here.
+class Seat(models.Model):
+    id = models.IntegerField(default=-1, primary_key=True)
+
 class Station(models.Model):
     id = models.IntegerField(default=-1, primary_key=True)
     stationName = models.CharField(max_length=15)
@@ -36,15 +39,20 @@ class Trip(models.Model):
     start_Time = models.TimeField(null=False)
     end_Time = models.TimeField(null=False)
     price = models.FloatField(null=False, default=0)
-    Remaining_seats = models.IntegerField(default=0)
+    Remaining_seats = models.IntegerField(default=0, editable=False)
+    seats = models.IntegerField(default=0, editable=False)
 
     def Source(self):
         return self.source.stationName
 
     def Destination(self):
         return self.destination.stationName
-
+    
+    
     def clean(self):
+        if self.id is None:
+            self.Remaining_seats = self.train.Number_of_seats
+            self.seats = self.train.Number_of_seats
         if self.source.id < self.train.source.id or self.source.id > self.train.destination.id:
             raise ValidationError(
                 "Source of the trip is not within the route of the train")
@@ -70,8 +78,6 @@ class Book(models.Model):
         Trip, on_delete=models.CASCADE, related_name="BookTrips", null=False)
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="BookUser", null=False)
-    seats = IntegerField(default=-1)
-
-    class Meta:
-        unique_together = (("trip", "user", "seats"),)
+    seats = IntegerField(default=0)
+    seatTrain = models.ManyToManyField(Seat)
 
