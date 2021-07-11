@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Station, Train, Trip
+from .models import Station, Train, Trip, Book
 
 
 class StationAdmin(admin.ModelAdmin):
@@ -18,3 +18,4 @@ class TripAdmin(admin.ModelAdmin):
 admin.site.register(Station, StationAdmin)
 admin.site.register(Train, TrainAdmin)
 admin.site.register(Trip, TripAdmin)
+admin.site.register(Book)

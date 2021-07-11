@@ -65,9 +65,6 @@ def signInForm(request):
             if user.is_active:
                 login(request, user)
                 return redirect('/')
-            else:
-                # Return a 'disabled account' error message
-                return HttpResponse("You're account is disabled.")
         else:
             return render(request, 'registrationPages/signIn.html', {'errorMsg': 'Wrong username or password'})
 
@@ -103,3 +100,6 @@ def updateProfile(request, username):
 
 def profile(request, username):
     return render(request, "sitePages/profile.html", {'username': username})
+
+def myTrips(request):
+    return render(request, "sitePages/myTrips.html")
