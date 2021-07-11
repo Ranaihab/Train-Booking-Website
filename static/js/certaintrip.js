@@ -46,3 +46,11 @@ function displayNumber() {
     xhttp.open("GET", "num.html", true);
     xhttp.send();
 }
+
+function myFunction() {
+    var x = document.getElementById('textBox');
+    if (x.style.visibility === 'hidden') {
+      x.style.visibility = 'visible';
+    }
+  }
+  

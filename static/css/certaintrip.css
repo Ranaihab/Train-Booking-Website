@@ -2,6 +2,10 @@ form {
   width:600px;
 }
 
+body{
+  background-image: url("train.jpe");
+}
+
 #text1 {
   float:right;
   color: white;
@@ -16,6 +20,7 @@ form {
 
 h1{
   color: white;
+  margin-left: 20%;
 }
 
 body{
@@ -39,10 +44,12 @@ font-size: 18px;
 cursor: pointer;
 position: absolute;
 border-radius: 4px;
+
 }
 
 .container {
   position: relative;
+  margin-right:46%;
 }
 
 .vertical-center {
@@ -61,4 +68,16 @@ border-radius: 4px;
 .credit_card{
     color: white;
     font-size: 17px;
+}
+
+#textBox{
+  position: absolute;
+  top: 385px;
+  margin-left: 610px;
+  size: 10;
+
+}
+
+.Body{
+  margin-left: 25%;
 }

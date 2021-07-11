@@ -1,75 +1,83 @@
 {% extends "base.html" %} {% load static %} {% block head %}
 <link rel="stylesheet" href="{% static 'css/certaintrip.css' %}">
 <script src="{%static '/js/certaintrip.js'%}"></script> {% endblock%} {% block title %} Trip {% endblock %} {% block content %} <br>
-<br>
-<h1> Trip Details</h1>
+<div class="Body">
 
-<form id="form1" name="form1" method="POST" action="/" onsubmit="return check(this)">
-
-    <label id="text1"> Trip ID
-        <br/>
-        <input type="text" name="textfield2" id="textfield2" size="30" />
-        </label>
-
-    <label id="text2"> Train
-        <br/>
-        <input type="text" name="textfield" id="textfield" size="30" />
-        </label>
-    <br>
-
-    <label id="text1"> From
-        <br/>
-        <input type="text" name="textfield2" id="textfield2" size="30" />
-        </label>
-
-    <label id="text2"> To
-        <br />
-        <input type="text" name="textfield" id="textfield" size="30" />
-        </label>
 
     <br>
+    <h1> Trip Details</h1>
 
-    <label id="text1"> Depture Time
-        <br />
-        <input type="text" name="textfield3" id="textfield2" size="30" />
-        </label>
+    <form id="form1" name="form1" method="POST" action="/" onsubmit="return check(this)">
 
-    <label id="text2"> Arrival Time
-        <br />
-        <input type="text" name="textfield4" id="textfield" size="30" />
-        </label>
+        <label id="text1"> Trip ID
+            <br/>
+            <input type="text" name="textfield2" id="textfield2" size="30" />
+            </label>
 
-    <br>
+        <label id="text2"> Train
+            <br/>
+            <input type="text" name="textfield" id="textfield" size="30" />
+            </label>
+        <br>
 
-    <label id="text1"> Available Seats
-        <br />
-        <input type="text" name="textfield2" id="textfield2" size="30" />
-        </label>
+        <label id="text1"> From
+            <br/>
+            <input type="text" name="textfield2" id="textfield2" size="30" />
+            </label>
 
-    <label id="text2"> Cost
-        <br />
-        <input type="text" name="textfield" id="textfield" size="30" />
-        </label>
+        <label id="text2"> To
+            <br />
+            <input type="text" name="textfield" id="textfield" size="30" />
+            </label>
 
-</form>
+        <br>
 
-<div>
-    <p> Payment method:
-    </p> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-    <input type="radio">
-    <label for="cash" class="cash"> Cash</label> &nbsp &nbsp &nbsp
-    <input type="radio" name="credit_card" oninput="displayNumber()">
-    <label for="credit_card" class="credit_card"> Credit Card</label>
-    <div id="num"></div>
-</div>
-<br>
-<br>
-<br>
-<div class="container">
-    <div class="vertical-center">
-        <input type="submit" value="Book" id="submit">
+        <label id="text1"> Depture Time
+            <br />
+            <input type="text" name="textfield3" id="textfield2" size="30" />
+            </label>
+
+        <label id="text2"> Arrival Time
+            <br />
+            <input type="text" name="textfield4" id="textfield" size="30" />
+            </label>
+
+        <br>
+
+        <label id="text1"> Available Seats
+            <br />
+            <input type="text" name="textfield2" id="textfield2" size="30" />
+            </label>
+
+        <label id="text2"> Cost
+            <br />
+            <input type="text" name="textfield" id="textfield" size="30" />
+            </label>
+
+    </form>
+
+    <div>
+        <p> Payment method:
+        </p> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+        <input type="radio" name="x">
+        <label for="cash" class="cash"> Cash</label> &nbsp &nbsp &nbsp
+        <input type="radio" name="x" oninput="displayNumber()" onclick="myFunction()">
+        <label for="credit_card" class="credit_card"> Credit Card</label>
+        <div id="num"></div>
+        <div id="textBox" style="visibility:hidden">
+          <input type="text" placeholder="Credit Card number">
+          <input type="text" placeholder="CCV">
+        </div>
     </div>
-</div>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <div class="vertical-center">
+            <input type="submit" value="Book" id="submit">
+        </div>
+    </div>
+
 
 
 { % endblock content % }
