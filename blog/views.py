@@ -4,11 +4,12 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect, HttpResponse
-from .models import Book
+from .models import Book, Trip
 
 @never_cache
 def home(request):
-    return render(request, 'sitePages/home.html')
+    trips = Trip.objects.all()
+    return render(request, 'sitePages/home.html', {'trips': trips})
 
 
 @never_cache
@@ -101,8 +102,9 @@ def updateProfile(request, username):
 def profile(request, username):
     return render(request, "sitePages/profile.html", {'username': username})
 
-def myTrips(request):
-    return render(request, "sitePages/myTrips.html")
+def myTrips(request, id):
+    book = Book.objects.filter(user = id)
+    return render(request, "sitePages/myTrips.html", {'books': book})
 
 def cancelTrip(request, id):
     obj = Book.objects.filter(id=id)

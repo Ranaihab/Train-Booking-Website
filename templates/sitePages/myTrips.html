@@ -30,7 +30,6 @@
             <th>Total Cost</th>
             <th>Cancel</th>
         </tr>
-        {% books user.id as books %}
 
         {% for book in books %}
 
@@ -55,7 +54,7 @@
                 {% bookPrice book as pr %}
                 <td>{{pr}}</td>
                 <td>
-                    <form method="POST"  action="{%url 'blog:cancelTrip' book.id %}">
+                    <form method="POST" action="{% url 'blog:cancelTrip' book.id %}" onsubmit="return removeRow('{{book.trip.id}}')">
                         {% csrf_token %}
                         <input type="submit" value = "Cancel"/>
                     </form>

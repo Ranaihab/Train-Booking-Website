@@ -19,4 +19,5 @@ def bookSeat(book):
 def bookPrice(book):
     count = book.seatTrain.count()
     price = count * book.trip.price
+    
     return price

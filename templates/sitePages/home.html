@@ -29,12 +29,13 @@
 
 </div>
 
-<div class="trips">
+<div class="trips" style="overflow: auto;">
     <p> Trips</p>
     <table>
+
         <tr>
             <th>ID</th>
-            <th>Train</th>
+            <th>Train Number</th>
             <th>From</th>
             <th>To</th>
             <th>Day</th>
@@ -42,17 +43,37 @@
             <th>Arrival Time</th>
             <th>Seats</th>
             <th>Cost</th>
+            <th>Book</th>
         </tr>
-        <tr id="notrip ">
-            <td colspan="9 "> No Trips Available</td>
+
+        {% for trip in trips %}
+
+            <tr id = "{{trip.id}}">
+                <td>{{trip.id}}</td>
+                <td>{{ trip.train.id }}</td>
+                <td>{{trip.source.stationName}}</td>
+                <td>{{trip.destination.stationName}}</td>
+                <td>{{trip.day}}</td>
+                <td>{{trip.start_Time}}</td>
+                <td>{{trip.end_Time}}</td>
+
+                <td>{{trip.price}}</td>
+                <td>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <input type="submit" value = "Book"/>
+                    </form>
+            </tr>
+
+
+        {% empty %}
+        <tr id="notrip">
+            <td colspan="10">No Trips Available</td>
         </tr>
+        {% endfor %}
 
     </table>
 </div>
-
-<p style="color: whitesmoke; position: absolute; top: 620px; left: 600px; font-size: 22px; font-weight: bold;"> Choose ID of trip for more details</p>
-
-
 
 {% endblock content %}
 
