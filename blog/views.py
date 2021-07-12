@@ -107,7 +107,10 @@ def myTrips(request, id):
     return render(request, "sitePages/myTrips.html", {'books': book})
 
 def cancelBook(request):
+    if request.is_ajax:
         if request.method =="GET":
             bookId = request.GET['bookId']
+            userId = request.GET['userId']
             obj = Book.objects.filter(id=bookId)
             obj.delete()   
+            return myTrips(request, userId)

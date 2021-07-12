@@ -48,7 +48,6 @@ class Trip(models.Model):
     def Destination(self):
         return self.destination.stationName
     
-    
     def clean(self):
         if self.id is None:
             self.Remaining_seats = self.train.Number_of_seats
@@ -63,8 +62,7 @@ class Trip(models.Model):
             raise ValidationError(
                 "Source and destination cannot be same station")
 
-        trips = Trip.objects.select_related(
-            'train').filter(train__id=self.train.id)
+        trips = Trip.objects.select_related('train').filter(train__id=self.train.id)
         for tr in trips:
             if self.day == tr.day:
                 if (self.start_Time >= tr.start_Time and self.start_Time < tr.end_Time) or (self.end_Time > tr.start_Time and self.end_Time <= tr.end_Time):

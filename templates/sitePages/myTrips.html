@@ -3,7 +3,7 @@
 {% load tags %}
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/myTrips.css' %}">
-<script src="{% static 'myTrips.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 {% endblock%}
 
 {% block title %} My Trips {% endblock %}
@@ -30,7 +30,7 @@
         {% for book in books %}
 
             <tr id = "{{book.id}}">
-                <td>{{book.trip.id}}</td>
+                <td>{{book.id}}</td>
                 <td>{{book.trip.train.id}}</td>
                 <td>{{book.trip.source.stationName}}</td>
                 <td>{{book.trip.destination.stationName}}</td>
@@ -49,16 +49,18 @@
                 <td>{{book.trip.price}}</td>
                 {% bookPrice book as pr %}
                 <td>{{pr}}</td>
-                <td><button class="cancel" data-id='{{book.id}}'>Cancel</button></td>
+                <td><button class="cancel" data-id='{{book.id}}' data-user="{{user.id}}">Cancel</button></td>
             </tr>
 
 
         {% empty %}
         <tr id="notrip">
-            <td colspan="10">No Trips Available</td>
+            <td colspan="10">No Books</td>
         </tr>
         {% endfor %}
 
     </table>
 </div>
+<script src="{% static 'js/myTrips.js' %}"></script>
 {% endblock content %}
+
