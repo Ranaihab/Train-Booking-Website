@@ -106,8 +106,8 @@ def myTrips(request, id):
     book = Book.objects.filter(user = id)
     return render(request, "sitePages/myTrips.html", {'books': book})
 
-def cancelTrip(request, id):
-    obj = Book.objects.filter(id=id)
-    if request.method =="POST":
-        obj.delete()
-        return HttpResponseRedirect('/')     
+def cancelBook(request):
+        if request.method =="GET":
+            bookId = request.GET['bookId']
+            obj = Book.objects.filter(id=bookId)
+            obj.delete()   

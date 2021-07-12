@@ -3,11 +3,7 @@
 {% load tags %}
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/myTrips.css' %}">
-<script>
-    function removeRow(idx) {
-        document.getElementById(idx).remove();
-    }
-</script>
+<script src="{% static 'myTrips.js' %}"></script>
 {% endblock%}
 
 {% block title %} My Trips {% endblock %}
@@ -33,9 +29,9 @@
 
         {% for book in books %}
 
-            <tr id = "{{book.trip.id}}">
+            <tr id = "{{book.id}}">
                 <td>{{book.trip.id}}</td>
-                <td>{{ book.trip.train.id }}</td>
+                <td>{{book.trip.train.id}}</td>
                 <td>{{book.trip.source.stationName}}</td>
                 <td>{{book.trip.destination.stationName}}</td>
                 <td>{{book.trip.day}}</td>
@@ -53,11 +49,7 @@
                 <td>{{book.trip.price}}</td>
                 {% bookPrice book as pr %}
                 <td>{{pr}}</td>
-                <td>
-                    <form method="POST" action="{% url 'blog:cancelTrip' book.id %}" onsubmit="return removeRow('{{book.trip.id}}')">
-                        {% csrf_token %}
-                        <input type="submit" value = "Cancel"/>
-                    </form>
+                <td><button class="cancel" data-id='{{book.id}}'>Cancel</button></td>
             </tr>
 
 

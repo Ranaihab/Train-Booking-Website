@@ -14,5 +14,5 @@ urlpatterns = [
     url(r'^logout/$', views.logOut, name='logOut'),
     path('updateProfile/<username>/', views.updateProfile, name='updateProfile'),
     path('profile/<username>', views.profile, name='profile'),
-    path('<id>/cancel', views.cancelTrip, name='cancelTrip'),
+    url(r'^cancelBook/$', views.cancelBook, name='cancelBook'),
 ]
