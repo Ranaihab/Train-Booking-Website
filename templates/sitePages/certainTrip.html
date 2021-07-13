@@ -1,6 +1,7 @@
 {% extends "base.html" %} {% load static %} {% block head %}
 <link rel="stylesheet" href="{% static 'css/certaintrip.css' %}">
-<script src="{% static '/js/certaintrip.js' %}"></script> {% endblock %} {% block title %} Trip {{trip.id}} {% endblock %} {% block content %} <br>
+<script src="{% static '/js/certaintrip.js' %}"></script> {% endblock %} {% block title %} Trip {{trip.id}}
+{% endblock %} {% block content %} <br>
 <div class="Body">
 
 
@@ -10,49 +11,49 @@
     <form id="form1" name="form1" method="POST" action="/" onsubmit="return check(this)">
 
         <label id="text1"> Trip ID
-            <br/>
+            <br />
             <input type="text" name="textfield2" id="textfield2" size="30" />
-            </label>
+        </label>
 
         <label id="text2"> Train
-            <br/>
+            <br />
             <input type="text" name="textfield" id="textfield" size="30" />
-            </label>
+        </label>
         <br>
 
         <label id="text1"> From
-            <br/>
+            <br />
             <input type="text" name="textfield2" id="textfield2" size="30" />
-            </label>
+        </label>
 
         <label id="text2"> To
             <br />
             <input type="text" name="textfield" id="textfield" size="30" />
-            </label>
+        </label>
 
         <br>
 
         <label id="text1"> Depture Time
             <br />
             <input type="text" name="textfield3" id="textfield2" size="30" />
-            </label>
+        </label>
 
         <label id="text2"> Arrival Time
             <br />
             <input type="text" name="textfield4" id="textfield" size="30" />
-            </label>
+        </label>
 
         <br>
 
         <label id="text1"> Available Seats
             <br />
             <input type="text" name="textfield2" id="textfield2" size="30" />
-            </label>
+        </label>
 
         <label id="text2"> Cost
             <br />
             <input type="text" name="textfield" id="textfield" size="30" />
-            </label>
+        </label>
 
     </form>
 
@@ -65,8 +66,8 @@
         <label for="credit_card" class="credit_card"> Credit Card</label>
         <div id="num"></div>
         <div id="textBox" style="visibility:hidden">
-          <input type="text" placeholder="Credit Card number">
-          <input type="text" placeholder="CCV">
+            <input type="text" placeholder="Credit Card number">
+            <input type="text" placeholder="CCV">
         </div>
     </div>
     <br>
@@ -78,4 +79,4 @@
         </div>
     </div>
 
-{% endblock content %}
+    {% endblock content %}

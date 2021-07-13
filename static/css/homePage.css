@@ -1,13 +1,13 @@
     * {
         box-sizing: border-box;
         font-family: 'Roboto', sans-serif;
-        
+
     }
 
-    body{
+    body {
         overflow: scroll;
     }
-    
+
     .filter {
         display: inline-block;
         align-items: center;
@@ -18,31 +18,35 @@
         padding-top: 20px;
         position: absolute;
     }
-    
+
     .filter label {
         font-size: 17px;
         color: white;
         margin-left: 10px;
     }
-    
+
+    .filter select {
+        border: 2px solid black;
+        margin-bottom: 10px;
+    }
+
     .filter input {
         border: 2px solid black;
         margin-bottom: 10px;
     }
-    
+
     #l1 {
         margin-left: 20px;
     }
-    
+
     .filter button {
         height: 30px;
         width: 70px;
-        margin-left: 97px;
-        margin-top: 20px;
+        margin-top: 15px;
         font-size: 16px;
         font-weight: bold;
     }
-    
+
     .trips p {
         font-family: 'Times New Roman', Times, serif;
         font-size: 35px;
@@ -50,7 +54,7 @@
         text-align: center;
         padding-top: 0.5px;
     }
-    
+
     .trips {
         top: 17%;
         margin-left: 27%;
@@ -60,7 +64,7 @@
         margin-top: 10px;
         position: absolute;
     }
-    
+
     table,
     th,
     td {
@@ -69,7 +73,7 @@
         table-layout: fixed;
         text-align: center;
     }
-    
+
     th {
         width: 133.3px;
         height: 40px;
@@ -77,12 +81,35 @@
         color: whitesmoke;
         font-weight: bold;
     }
-    
+
     td {
         width: 114.28px;
         height: 30px;
         font-size: 16px;
         color: whitesmoke;
     }
-  
-  
+
+    #filterDiv {
+        display: inline-flex;
+        width: 100%;
+    }
+
+    .filterBtns {
+        margin-right: 10px;
+        margin-left: 50px;
+        border-radius: 15px;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: rgba(87, 8, 18, 0.671);
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 7px #999;
+    }
+
+    .filterBtns:active {
+        background-color: rgba(87, 8, 18, 0.671);
+        box-shadow: 0 2px #666;
+        transform: translateY(4px);
+    }

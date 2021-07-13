@@ -3,43 +3,52 @@
 {% load tags %}
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/homePage.css' %}">
-<script src="{%static '/js/options.js'%}"></script> 
 {% endblock%} 
 {% block title %} Home {% endblock %}
 {% block content %}
 
 <div class="filter">
-    <span><label for="Filter options" id="label1"> Filter By</label></span>
+    <span><label for="Filter options" id="label1">Filter By</label></span>
     <br> <br>
 
     <div id="Filter options">
 
-        <label for="option1"> Date</label>
-        <input type="date" id="option1" name="option1"><br>
+        <label for="dateOption">Date</label>
+        <input type="date" id="dateOption" name="dateOption"><br>
 
-        <label for="option2"> Source</label>
-        <input type="text" id="option2" name="option2"><br>
+        <label for="sourceOption">Source</label>
+        <select name="sourceOption" id="sourceOption">
+            {% for station in stations %}
+                <option>{{station.stationName}}</option>
+            {% endfor %}
+        </select><br>
+    
+        <label for="destOption">Destination</label>
+        <select name="destOption" id="destOption">
+            {% for station in stations %}
+                <option>{{station.stationName}}</option>
+            {% endfor %}
+        </select><br>
 
-        <label for="option3"> Destination</label>
-        <input type="text" id="option3" name="option3"><br>
+        <label for="timeOption">Time</label>
+        <input type="time" id="timeOption" name="timeOption"><br>
 
-        <label for="option4"> Time</label>
-        <input type="time" id="option4" name="option4"><br>
-
-        <label for="option5"> Number of Seats</label>
-        <input type="text" id="option5" name="option5"><br>
+        <label for="seatNbOption">Number of Seats</label>
+        <input type="text" id="seatNbOption" name="seatNbOption"><br>
 
     </div>
-    <button> Filter</button>
-
+    <div id="filterDiv">
+        <button class="filterBtns" onclick="filter('{{trips}}')">Filter</button>
+        <button class="filterBtns" onclick="reset()">Reset</button>
+    </div>
 </div>
 
 <div class="trips" style="overflow: auto;">
     {% if errorMsg %}
         <p class="errorMessage" style="color: red; font-size: 24px;">{{ errorMsg }}</p>
     {% endif %}
-    <p> Trips</p>
-    <table>
+    <p>Trips</p>
+    <table id="tripsTable">
 
         <tr>
             <th>ID</th>
@@ -88,6 +97,7 @@
 
     </table>
 </div>
+<script src="{% static 'js/home.js' %}"></script>
 
 {% endblock content %}
 

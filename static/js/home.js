@@ -1,5 +1,24 @@
-function edit(obj, id1, id2, id3, id4, id5) {
-    text = obj.options[obj.selectedIndex].value;
+function reset() {
+    document.getElementById("dateOption").value = '';
+    document.getElementById("sourceOption").value = '';
+    document.getElementById("destOption").value = '';
+    document.getElementById("timeOption").value = '';
+    document.getElementById("seatNbOption").value = '';
+}
+
+function filter(trips) { 
+    var date = document.getElementById("dateOption").value;
+    var source = document.getElementById("sourceOption").value;
+    var dest = document.getElementById("destOption").value;
+    var time = document.getElementById("timeOption").value;
+    var seatNb = document.getElementById("seatNbOption").value;
+    if(document.getElementById("dateOption").value != '')
+        for(var trip in trips)
+            console.log(trip.value);
+}
+
+
+    /*text = obj.options[obj.selectedIndex].value;
 
     document.getElementById("op1").style.display = 'none';
     document.getElementById("op2").style.display = 'none';
@@ -29,7 +48,7 @@ function edit(obj, id1, id2, id3, id4, id5) {
     if (text.match(op5)) {
         document.getElementById("op5").style.display = 'block';
 
-    }
+    }*/
 
     /** 
     function date() {
@@ -59,4 +78,3 @@ function edit(obj, id1, id2, id3, id4, id5) {
         xhttp.open("GET", "time.html", true);
         xhttp.send();
     }**/
-}

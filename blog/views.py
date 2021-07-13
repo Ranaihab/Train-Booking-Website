@@ -4,12 +4,13 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect, HttpResponse
-from .models import Book, Trip
+from .models import Book, Station, Trip
 
 @never_cache
 def home(request):
     trips = Trip.objects.all()
-    return render(request, 'sitePages/home.html', {'trips': trips})
+    stations = Station.objects.all()
+    return render(request, 'sitePages/home.html', {'trips': trips, 'stations': stations})
 
 
 @never_cache

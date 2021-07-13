@@ -11,4 +11,3 @@ class RegisterationForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'cunstomForm'}))
     confirmPass = forms.CharField(widget=forms.PasswordInput(attrs={'class':'cunstomForm'}))
     isAdmin = forms.BooleanField(widget=forms.RadioSelect(attrs={'class':'cunstomForm'}))
-    
