@@ -51,9 +51,6 @@ def signUpForm(request):
             
             login(request, user)
             return redirect('/')
-
-            # redirect to accounts page:
-            #return HttpResponseRedirect('/mymodule/account')
     
 
 
@@ -114,3 +111,10 @@ def cancelBook(request):
             obj = Book.objects.filter(id=bookId)
             obj.delete()   
             return myTrips(request, userId)
+
+def certainTrip(request, id):
+    if request.user.is_authenticated:
+        trip = Trip.objects.filter(id = id)
+        return render(request, 'sitePages/certainTrip.html', {'trip': trip})
+    else:
+        return render(request, 'sitePages/home.html', {'errorMsg': 'Please sign in or sign up to book'})

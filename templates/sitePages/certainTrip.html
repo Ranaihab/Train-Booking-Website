@@ -1,6 +1,6 @@
 {% extends "base.html" %} {% load static %} {% block head %}
 <link rel="stylesheet" href="{% static 'css/certaintrip.css' %}">
-<script src="{%static '/js/certaintrip.js'%}"></script> {% endblock%} {% block title %} Trip {% endblock %} {% block content %} <br>
+<script src="{% static '/js/certaintrip.js' %}"></script> {% endblock %} {% block title %} Trip {{trip.id}} {% endblock %} {% block content %} <br>
 <div class="Body">
 
 
@@ -78,6 +78,4 @@
         </div>
     </div>
 
-
-
-{ % endblock content % }
+{% endblock content %}

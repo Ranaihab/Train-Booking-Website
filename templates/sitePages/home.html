@@ -1,6 +1,11 @@
-{% extends "base.html" %} {% load static %} {% block head %}
+{% extends "base.html" %} 
+{% load static %} 
+{% load tags %}
+{% block head %}
 <link rel="stylesheet" href="{% static 'css/homePage.css' %}">
-<script src="{%static '/js/options.js'%}"></script> {% endblock%} {% block title %} Home {% endblock %}
+<script src="{%static '/js/options.js'%}"></script> 
+{% endblock%} 
+{% block title %} Home {% endblock %}
 {% block content %}
 
 <div class="filter">
@@ -30,6 +35,9 @@
 </div>
 
 <div class="trips" style="overflow: auto;">
+    {% if errorMsg %}
+        <p class="errorMessage" style="color: red; font-size: 24px;">{{ errorMsg }}</p>
+    {% endif %}
     <p> Trips</p>
     <table>
 
@@ -56,13 +64,19 @@
                 <td>{{trip.day}}</td>
                 <td>{{trip.start_Time}}</td>
                 <td>{{trip.end_Time}}</td>
-
+                <td>
+                    <select>
+                        <option selected hidden>Seats</option>
+                        {% tripSeat trip as seats %}
+                        {% for seat in seats %}
+                            <option disabled>{{seat}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
                 <td>{{trip.price}}</td>
                 <td>
-                    <form method="POST">
-                        {% csrf_token %}
-                        <input type="submit" value = "Book"/>
-                    </form>
+                    <a href="{% url 'blog:certainTrip' trip.id %}"><button>Book</button></a>
+                </td>
             </tr>
 
 

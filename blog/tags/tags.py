@@ -19,5 +19,16 @@ def bookSeat(book):
 def bookPrice(book):
     count = book.seatTrain.count()
     price = count * book.trip.price
-    
     return price
+
+@register.simple_tag
+def tripSeat(trip):
+    book = Book.objects.filter(trip = trip.id)
+    bookSeats = book.values_list('seatTrain', flat=True)
+    seats = []
+    i = 1
+    while i <= trip.seats:
+        if i not in bookSeats:
+            seats.append(i)
+        i = i+1
+    return seats
