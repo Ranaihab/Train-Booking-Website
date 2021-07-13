@@ -3,7 +3,6 @@
 {% load tags %}
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/myTrips.css' %}">
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 {% endblock%}
 
 {% block title %} My Trips {% endblock %}
@@ -29,28 +28,28 @@
 
         {% for book in books %}
 
-            <tr id = "{{book.id}}">
-                <td>{{book.id}}</td>
-                <td>{{book.trip.train.id}}</td>
-                <td>{{book.trip.source.stationName}}</td>
-                <td>{{book.trip.destination.stationName}}</td>
-                <td>{{book.trip.day}}</td>
-                <td>{{book.trip.start_Time}}</td>
-                <td>{{book.trip.end_Time}}</td>
-                <td>
-                    <select>
-                        <option selected hidden>Seats</option>
-                        {% bookSeat book as seats %}
-                        {% for seat in seats %}
-                            <option disabled>{{seat.id}}</option>
-                        {% endfor %}
-                    </select>
-                </td>
-                <td>{{book.trip.price}}</td>
-                {% bookPrice book as pr %}
-                <td>{{pr}}</td>
-                <td><button class="cancel" data-id='{{book.id}}' data-user="{{user.id}}">Cancel</button></td>
-            </tr>
+        <tr id = "{{book.id}}">
+            <td>{{book.trip.id}}</td>
+            <td>{{book.trip.train.id}}</td>
+            <td>{{book.trip.source.stationName}}</td>
+            <td>{{book.trip.destination.stationName}}</td>
+            <td>{{book.trip.day}}</td>
+            <td>{{book.trip.start_Time}}</td>
+            <td>{{book.trip.end_Time}}</td>
+            <td>
+                <select>
+                    <option selected hidden>Seats</option>
+                    {% bookSeat book as seats %}
+                    {% for seat in seats %}
+                        <option disabled>{{seat.id}}</option>
+                    {% endfor %}
+                </select>
+            </td>
+            <td>{{book.trip.price}}</td>
+            {% bookPrice book as pr %}
+            <td>{{pr}}</td>
+            <td><button class="cancel" data-id='{{book.id}}' data-user="{{user.id}}">Cancel</button></td>
+        </tr>
 
 
         {% empty %}

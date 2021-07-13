@@ -10,9 +10,14 @@ $('.cancel').click(function () {
         },
         success: function () {
             document.getElementById(id).remove();
-        },
-        error: function(){
-            console.log("hi")
+            var rows = document.getElementById("tripsTable").children;
+            var table = document.getElementById("tripsTable");
+            if(table.rows.length == 1){ 
+                var row = table.insertRow(1);
+                var cell = row.insertCell(0);
+                cell.innerHTML = "No Books";
+                cell.colSpan="10";
+            }
         }
     })
 });
