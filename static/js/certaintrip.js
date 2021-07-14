@@ -1,55 +1,48 @@
-function check(form) {
+function check(){
+    var count = $("#op :selected").length;
 
-    if (form.textfield2.value.length > 30) {
-        alert("Error : Too Long! ");
-        form.textfield2.focus();
+    if(count == 0){
+        alert("You should select at least on seat");
         return false;
-
     }
-    if (form.textfield.value.length > 30) {
-        alert("Error : Too Long! ");
-        form.textfield2.focus();
+    if(!document.getElementById("credit").checked && !document.getElementById("cash").checked){
+        alert("You should select payement method");
         return false;
-
     }
-    if (form.textfield3.value.length > 30) {
-        alert("Error : Too Long! ");
-        form.textfield2.focus();
-        return false;
-
+    if(document.getElementById("credit").checked){
+        if(document.getElementById("creditNum").value.length != 16 || isNaN(document.getElementById("creditNum").value)){
+            alert("Credit Number should be 16 digits");
+            return false;
+        }
+        if(document.getElementById("ccv").value.length != 3 || isNaN(document.getElementById("ccv").value)){
+            alert("CCV should be 3 digits");
+            return false;
+        }
     }
-    if (form.textfield4.value.length > 30) {
-        alert("Error : Too Long! ");
-        form.textfield2.focus();
-        return false;
-
-    }
-    if (form.textfield5.value.length > 30) {
-        alert("Error : Too Long! ");
-        form.textfield2.focus();
-        return false;
-
-    }
+    return true;
+    
 }
 
-function displayNumber() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange =
+$('#op').change(function () {
+    var count = $("#op :selected").length;
+    var price = $(this).attr('data');
+    var tPrice = count * price;
+    $("#price").val(tPrice);
+});
 
-        function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("num").innerHTML = this.responseText;
-            }
 
-        };
-    xhttp.open("GET", "num.html", true);
-    xhttp.send();
-}
 
-function myFunction() {
+function displayCredit() {
     var x = document.getElementById('textBox');
     if (x.style.visibility === 'hidden') {
       x.style.visibility = 'visible';
     }
-  }
+}
+
+function hideCredit() {
+    var x = document.getElementById('textBox');
+    if (x.style.visibility === 'visible') {
+      x.style.visibility = 'hidden';
+    }
+}
   

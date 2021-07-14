@@ -1,6 +1,4 @@
 function check(form) {
-
-
     if (form.textfield2.value.length > 30) {
         alert("Error : Too Long! ");
         form.textfield2.focus();

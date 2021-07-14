@@ -6,7 +6,8 @@ function reset() {
     document.getElementById("seatNbOption").value = '';
 }
 
-function filter(trips) { 
+function filter() { 
+    var trips = document.getElementById("variable").value
     var date = document.getElementById("dateOption").value;
     var source = document.getElementById("sourceOption").value;
     var dest = document.getElementById("destOption").value;

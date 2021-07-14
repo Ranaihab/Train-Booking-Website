@@ -1,10 +1,9 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from django.views.decorators.cache import never_cache
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect, HttpResponse
-from .models import Book, Station, Trip
+from .models import Book, Station, Trip, Seat
 
 @never_cache
 def home(request):
@@ -115,7 +114,33 @@ def cancelBook(request):
 
 def certainTrip(request, id):
     if request.user.is_authenticated:
-        trip = Trip.objects.filter(id = id)
+        trip = Trip.objects.get(id = id)
+
         return render(request, 'sitePages/certainTrip.html', {'trip': trip})
     else:
-        return render(request, 'sitePages/home.html', {'errorMsg': 'Please sign in or sign up to book'})
+        trips = Trip.objects.all()
+        return render(request, 'sitePages/home.html', {'errorMsg': 'Please sign in or sign up to book', 'trips': trips})
+
+def book(request):
+    if request.method == "POST":
+        tid = request.POST.get('tripId')
+        if(tid is None):
+            return render
+        trip = Trip.objects.get(id = tid)
+
+        book = Book(
+                trip = Trip.objects.get(id = tid),
+                user = request.user,
+                seats = len(request.POST.get('selected')),
+            )
+        book.save()
+        
+        for i in request.POST.get('selected'):
+            if not Seat.objects.filter(id = i):
+                seat = Seat(id = i)
+                seat.save()
+            seat = Seat.objects.get(id = i)
+            book.seatTrain.set(seat)
+            trip.Remaining_seats -= 1
+        book.save()
+        return render(request, 'sitePages/Home.html', {'errorMsg': 'Book is successful'})

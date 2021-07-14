@@ -69,6 +69,9 @@ class Trip(models.Model):
                     raise ValidationError(
                         "Their is a trip on this train at the same time")
                     break
+        if self.start_Time == self.end_Time:
+            raise ValidationError(
+                "Arrival and departure time cannot be the same time")
 
 
 class Book(models.Model):
@@ -77,5 +80,5 @@ class Book(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="BookUser", null=False)
     seats = IntegerField(default=0)
-    seatTrain = models.ManyToManyField(Seat)
+    seatTrain = models.ManyToManyField(Seat, null = True)
 

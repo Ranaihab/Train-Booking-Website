@@ -7,7 +7,7 @@
 {% block title %} Home {% endblock %}
 {% block content %}
 
-<div class="filter">
+<div class="filter" value="{{ trips }}" id = "variable">
     <span><label for="Filter options" id="label1">Filter By</label></span>
     <br> <br>
 
@@ -97,7 +97,7 @@
 
     </table>
 </div>
-<script src="{% static 'js/home.js' %}"></script>
+<script src="{% static 'js/home.js' %}"> </script>
 
 {% endblock content %}
 

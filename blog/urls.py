@@ -13,6 +13,7 @@ urlpatterns = [
     url(r'^sign-up/$', views.signUpForm, name='signUpForm'),
     url(r'^login/$', views.signInForm, name='signInForm'),
     url(r'^logout/$', views.logOut, name='logOut'),
+    path('book/', views.book, name='book'),
     path('updateProfile/<username>/', views.updateProfile, name='updateProfile'),
     path('profile/<username>', views.profile, name='profile'),
     url(r'^cancelBook/$', views.cancelBook, name='cancelBook'),
