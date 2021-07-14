@@ -2,39 +2,41 @@
 {% load static %}
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/profile.css' %}">
-<script src="{% static '/js/check.js' %}"></script>
-{% endblock%} {% block title %} Profile {% endblock %} {% block content %}
 
-<form id="form1" name="form1">
-    <div class="body">
+{% endblock%} {% block title %} Profile {% endblock %} {% block content %}
+<div class="body">
+    <form id="form1" name="form1">
+        {% csrf_token %}
+        <p id="msg" style="color: red; font-size: 22px;"></p>
         <h1> Profile</h1>
-        <label id="text1">Username <br />
-            <input type="text" name="uname" id="textfield" value="{{user.username}}" disabled>
+        <label>Username <br />
+            <input type="text" name="uname" id="username" value="{{user.username}}" readonly>
         </label>
         <br />
-        <label id="text1">First Name <br />
-            <input type="text" name="fname" id="textfield2" value="{{user.first_name}}" disabled>
+        <label>First Name <br />
+            <input type="text" name="fname" id="fname" value="{{user.first_name}}" readonly>
         </label><br />
 
-        <label id="text2"> Last Name
+        <label> Last Name
             <br />
-            <input type="text" name="lname" id="textfield" value="{{user.last_name}}" disabled>
+            <input type="text" name="lname" id="lname" value="{{user.last_name}}" readonly>
         </label>
         <br />
-        <label id="text1"> Email
+        <label> Email
             <br />
-            <input type="Email" name="email" id="textfield2" value="{{user.email}}" disabled>
+            <input type="Email" name="email" id="email" value="{{user.email}}" readonly>
         </label>
         <br />
 
 
-        <label id="text1"> Password
+        <label> Password
             <br />
-            <input type="Password" name="pass" id="textfield" value="{{user.password}}" disabled>
+            <input type="Password" name="pass" id="password" value="{{user.password}}" readonly>
         </label>
         <br>
-    </div>
-    <input type="submit" id="b1" value="update">
-</form>
 
+        <input type="button" id="submit" value="update" user-id="{{user.id}}">
+    </form>
+</div>
+<script src="{% static '/js/profile.js' %}"></script>
 {% endblock %}

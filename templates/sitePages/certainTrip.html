@@ -16,43 +16,45 @@
     <form id="form1" name="form1" method="POST" onsubmit="return check()" action="{% url 'blog:book' %}">
         {% csrf_token %}
 
-        <label id="text1"> Trip ID
+        <label class = "rightSide"> Train Number
+            <br />
+            <input type="text" name="train" class="in" size="30" value="{{trip.train.id}}" readonly />
+        </label>
+
+        <label class="leftSide"> Trip ID
             <br />
             <input type="text" name="tripId" class="in" size="30" value="{{trip.id}}" readonly />
         </label>
 
-        <label id="text2"> Train Number
-            <br />
-            <input type="text" name="train" class="in" size="30" value="{{trip.train.id}}" readonly />
-        </label>
+        
         <br>
 
-        <label id="text1"> To
+        <label class = "rightSide"> To
             <br />
             <input type="text" name="destination" class="in" size="30" value="{{trip.destination.stationName}}"
                 readonly />
         </label>
 
-        <label id="text2"> From
+        <label class="leftSide"> From
             <br />
             <input type="text" name="source" class="in" size="30" value="{{trip.source.stationName}}" readonly />
         </label>
 
         <br>
 
-        <label id="text1"> Departure Time
+        <label class = "rightSide"> Departure Time
             <br />
             <input type="text" name="dparture" class="in" size="30" value="{{trip.start_Time}}" readonly />
         </label>
 
-        <label id="text2"> Arrival Time
+        <label class="leftSide"> Arrival Time
             <br />
             <input type="text" name="arrival" class="in" size="30" value="{{trip.end_Time}}" readonly />
         </label>
 
         <br>
 
-        <label id="text1" style="margin-left:53%;"> Available Seats
+        <label class = "rightSide" style="margin-left:53%;"> Available Seats
             <br />
             <select id="op" name="selected" data="{{trip.price}}" multiple>
                 {% tripSeat trip as seats %}
@@ -64,7 +66,7 @@
             <p style="font-size:12px;">(Hold down “Control” to select more than one)</p>
         </label>
 
-        <label id="text2" style="margin-top:-22%;"> Cost
+        <label class="leftSide" style="margin-top:-22%;"> Cost
             <br />
             <input type="text" class="in" name="cost" size="30" value="{{trip.price}}" readonly="true" />
         </label>

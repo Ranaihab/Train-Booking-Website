@@ -1,5 +1,4 @@
 function valid() {
-    console.log("hiiiiiiii");
     if (document.getElementById("username").value == "") {
         alert("Please enter username");
         document.getElementById("username").focus();

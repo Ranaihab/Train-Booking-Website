@@ -2,13 +2,13 @@ form {
   width:600px;
 }
 
-#text1 {
+.rightSide {
   float:right;
   color: white;
   font-size: 20px;
 }
 
-#text2 {
+.leftSide {
   float:left;
   color: white;
   font-size: 20px;

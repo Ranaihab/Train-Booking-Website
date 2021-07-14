@@ -21,7 +21,7 @@
             {% else %}
                 <a href="{% url 'blog:myTrips' user.id %}">My Trips</a>
             {% endif %}
-            <a href="{% url 'blog:profile' user.username %}">{{ user.username }}</a>
+            <a id = "us" href="{% url 'blog:profile' user.username %}">{{ user.username }}</a>
             <a href="{% url 'blog:logOut' %}">Log out</a>
         {% else %}
             <a id="signIn" href="{% url 'blog:signIn' %}">Sign In</a>
