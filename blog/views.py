@@ -10,7 +10,6 @@ import json
 @never_cache
 def home(request):
     trips = Trip.objects.all()
-    temp = Trip.objects.values()
     stations = Station.objects.all()
     tripJSON = serializers.serialize("json",trips)
     tripObj = json.loads(tripJSON)

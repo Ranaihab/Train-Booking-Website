@@ -1,7 +1,6 @@
 from blog.models import Book
 from django.template.loader import get_template
 from django.utils.safestring import mark_safe
-import json
 from django import template
 
 register = template.Library()
@@ -34,7 +33,3 @@ def tripSeat(trip):
             seats.append(i)
         i = i+1
     return seats
-
-@register.filter
-def jsonify(list):
-    return mark_safe(json.dumps(list))
