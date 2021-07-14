@@ -18,15 +18,17 @@
 
         <label for="sourceOption">Source</label>
         <select name="sourceOption" id="sourceOption">
+            <option value="stations" hidden>Stations</option>
             {% for station in stations %}
-                <option>{{station.stationName}}</option>
+                <option value="{{station.id}}">{{station.stationName}}</option>
             {% endfor %}
         </select><br>
     
         <label for="destOption">Destination</label>
         <select name="destOption" id="destOption">
+            <option value="stations" hidden>Stations</option>
             {% for station in stations %}
-                <option>{{station.stationName}}</option>
+                <option value="{{station.id}}">{{station.stationName}}</option>
             {% endfor %}
         </select><br>
 
@@ -38,8 +40,8 @@
 
     </div>
     <div id="filterDiv">
-
-        <button class="filterBtns" onclick="filter('{{temp}}')">Filter</button>
+        {{ data | json_script:"trips-data" }}
+        <button class="filterBtns" onclick="filter()">Filter</button>
         <button class="filterBtns" onclick="reset()">Reset</button>
     </div>
 </div>
@@ -65,31 +67,30 @@
         </tr>
 
         {% for trip in trips %}
-
-            <tr id = "{{trip.id}}">
-                <td>{{trip.id}}</td>
-                <td>{{ trip.train.id }}</td>
-                <td>{{trip.source.stationName}}</td>
-                <td>{{trip.destination.stationName}}</td>
-                <td>{{trip.day}}</td>
-                <td>{{trip.start_Time}}</td>
-                <td>{{trip.end_Time}}</td>
-                <td>
-                    <select>
-                        <option selected hidden>Seats</option>
-                        {% tripSeat trip as seats %}
-                        {% for seat in seats %}
-                            <option disabled>{{seat}}</option>
-                        {% endfor %}
-                    </select>
-                </td>
-                <td>{{trip.price}}</td>
-                <td>
-                    <a href="{% url 'blog:certainTrip' trip.id %}"><button>Book</button></a>
-                </td>
-            </tr>
-
-
+            {% if trip.isPast and trip.Remaining_seats > 0 %}
+                <tr id = "{{trip.id}}">
+                    <td>{{trip.id}}</td>
+                    <td>{{ trip.train.id }}</td>
+                    <td>{{trip.source.stationName}}</td>
+                    <td>{{trip.destination.stationName}}</td>
+                    <td>{{trip.day}}</td>
+                    <td>{{trip.start_Time}}</td>
+                    <td>{{trip.end_Time}}</td>
+                    <td>
+                        <select>
+                            <option selected hidden>Seats</option>
+                            {% tripSeat trip as seats %}
+                            {% for seat in seats %}
+                                <option disabled>{{seat}}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                    <td>{{trip.price}}</td>
+                    <td>
+                        <a href="{% url 'blog:certainTrip' trip.id %}"><button>Book</button></a>
+                    </td>
+                </tr>
+            {% endif %}
         {% empty %}
         <tr id="notrip">
             <td colspan="10">No Trips Available</td>

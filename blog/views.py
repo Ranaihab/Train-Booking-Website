@@ -14,7 +14,7 @@ def home(request):
     stations = Station.objects.all()
     tripJSON = serializers.serialize("json",trips)
     tripObj = json.loads(tripJSON)
-    return render(request, 'sitePages/home.html', {'trips': trips, 'stations': stations, 'data': json.dumps(tripObj), 'temp':temp})
+    return render(request, 'sitePages/home.html', {'trips': trips, 'stations': stations, 'data': json.dumps(list(tripObj))})
 
 
 @never_cache

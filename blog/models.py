@@ -3,6 +3,7 @@ from django.db.models.fields import IntegerField
 from django.db.models.fields.related import ForeignKey
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
+from datetime import date
 
 
 #Create your models here.
@@ -47,6 +48,10 @@ class Trip(models.Model):
 
     def Destination(self):
         return self.destination.stationName
+
+    @property
+    def isPast(self):
+        return self.day >= date.today()
     
     def clean(self):
         if self.id is None:
