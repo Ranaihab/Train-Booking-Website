@@ -4,12 +4,17 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect, HttpResponse
 from .models import Book, Station, Trip, Seat
+from django.core import serializers
+import json
 
 @never_cache
 def home(request):
     trips = Trip.objects.all()
+    temp = Trip.objects.values()
     stations = Station.objects.all()
-    return render(request, 'sitePages/home.html', {'trips': trips, 'stations': stations})
+    tripJSON = serializers.serialize("json",trips)
+    tripObj = json.loads(tripJSON)
+    return render(request, 'sitePages/home.html', {'trips': trips, 'stations': stations, 'data': json.dumps(tripObj), 'temp':temp})
 
 
 @never_cache

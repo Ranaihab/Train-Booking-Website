@@ -35,7 +35,7 @@ label {
 
 .logInBtn {
     margin-left: 3px;
-    background-color: #913704;
+    background-color: rgba(87, 8, 18);
     border: none;
     padding: 15px 32px;
     border-radius: 25px;
@@ -56,8 +56,8 @@ input::placeholder {
     text-align: center;
 }
 
-.logInBtn :hover {
-    background-color: rgb(243, 211, 122);
+.logInBtn:hover {
+    background-color: rgb(33, 53, 156);
 }
 
 .notAcc {

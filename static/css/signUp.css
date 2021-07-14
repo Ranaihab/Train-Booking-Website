@@ -35,7 +35,7 @@ label {
 
 .sign {
     margin-left: 3px;
-    background-color: #913704;
+    background-color: rgba(87, 8, 18);
     border: none;
     padding: 15px 32px;
     border-radius: 25px;
@@ -57,5 +57,5 @@ input::placeholder {
 }
 
 .sign:hover {
-    background-color: rgb(243, 211, 122);
+    background-color:rgb(33, 53, 156);
 }

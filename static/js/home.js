@@ -1,3 +1,5 @@
+
+
 function reset() {
     document.getElementById("dateOption").value = '';
     document.getElementById("sourceOption").value = '';
@@ -6,8 +8,10 @@ function reset() {
     document.getElementById("seatNbOption").value = '';
 }
 
-function filter() { 
-    var trips = document.getElementById("variable").value
+function filter(data) { 
+    //var trips = document.getElementById("variable").value;
+    //var trips = JSON.parse(data);
+    console.log(data);
     var date = document.getElementById("dateOption").value;
     var source = document.getElementById("sourceOption").value;
     var dest = document.getElementById("destOption").value;
@@ -15,7 +19,7 @@ function filter() {
     var seatNb = document.getElementById("seatNbOption").value;
     if(document.getElementById("dateOption").value != '')
         for(var trip in trips)
-            console.log(trip.value);
+            console.log(trip.date);
 }
 
 
