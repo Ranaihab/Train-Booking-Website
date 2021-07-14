@@ -1,3 +1,4 @@
+from django.http.response import JsonResponse
 from django.shortcuts import get_object_or_404, render, redirect
 from django.views.decorators.cache import never_cache
 from django.contrib.auth import authenticate, login, logout
@@ -6,6 +7,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from .models import Book, Station, Trip, Seat
 from django.core import serializers
 import json
+from datetime import date, datetime
 
 @never_cache
 def home(request):
@@ -114,12 +116,14 @@ def cancelBook(request):
             userId = request.GET['userId']
             obj = Book.objects.filter(id=bookId)
             trip = obj[0].trip
+            if trip.day < date.today() or (trip.day == date.today() and trip.start_Time <= datetime.now().strftime("%I:%M %p")):
+                return JsonResponse({'msg':"Trip time has passed cannot cancel"})
             bookSeats = obj.values_list('seatTrain', flat=True)
             seatCount = len(bookSeats)
             trip.Remaining_seats += seatCount
             trip.save()
             obj.delete()   
-            return myTrips(request, userId)
+            return JsonResponse({'msg':"Book is canceled"})
 
 def certainTrip(request, id):
     if request.user.is_authenticated:
