@@ -1,6 +1,5 @@
 * {
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
     padding: 0;
     margin: 0;
 }
@@ -34,12 +33,22 @@ label {
 }
 
 .logInBtn {
-    margin-left: 3px;
+    height: 35px;
+    width: 100px;
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 10px;
+    margin-left: 50px;
+    border-radius: 15px;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
     background-color: rgba(87, 8, 18);
     border: none;
-    padding: 15px 32px;
-    border-radius: 25px;
-    color: white;
+    border-radius: 15px;
+    box-shadow: 0 7px #999;
 }
 
 input {
@@ -58,6 +67,12 @@ input::placeholder {
 
 .logInBtn:hover {
     background-color: rgb(33, 53, 156);
+}
+
+.logInBtn:active {
+    background-color: rgba(87, 8, 18);
+    box-shadow: 0 2px #666;
+    transform: translateY(4px);
 }
 
 .notAcc {

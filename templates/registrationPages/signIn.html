@@ -1,13 +1,13 @@
-{% extends "base.html" %} 
-{% load static %} 
+{% extends "base.html" %}
+{% load static %}
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/signIn.css' %}"> 
+<link rel="stylesheet" href="{% static 'css/signIn.css' %}">
 {% endblock%} {% block title %} Sign In {% endblock %} {% block content %}
 <div class="signin">
     <form method="POST" action="{% url 'blog:signInForm' %}">
         {% csrf_token %}
         {% if errorMsg %}
-            <p class="errorMessage" style="color: red;">{{ errorMsg }}</p>
+        <p class="errorMessage" style="color: red;">{{ errorMsg }}</p>
         {% endif %}
         <label class="mainLabels">Username :</label>
         <input type="text" placeholder="Username" name="username"><br>
@@ -21,11 +21,5 @@
             <a class="ml-2" href="{% url 'blog:signUp' %}">Sign up</a>
         </p>
     </div>
-    <!--<div id="msgInvalidPass">
-    <p id="letter" class="notvalid">A <b>lowercase</b> letter</p>
-    <p id="capital" class="notvalid">A <b>capital</b> letter</p>
-    <p id="number" class="notvalid">A <b>number</b></p>
-    <p id="length" class="notvalid">Minimum <b>8 characters</b></p>
-</div>-->
 </div>
 {% endblock %}

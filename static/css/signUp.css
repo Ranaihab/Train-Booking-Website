@@ -1,6 +1,5 @@
 * {
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -33,15 +32,6 @@ label {
     font-size: 20px;
 }
 
-.sign {
-    margin-left: 3px;
-    background-color: rgba(87, 8, 18);
-    border: none;
-    padding: 15px 32px;
-    border-radius: 25px;
-    color: white;
-}
-
 input {
     margin-top: 20px;
     font-size: 15px;
@@ -56,6 +46,31 @@ input::placeholder {
     text-align: center;
 }
 
-.sign:hover {
+.signUpBtn {
+    height: 35px;
+    width: 100px;
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 15px;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: rgba(87, 8, 18);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 7px #999;
+    padding-bottom: 15px;
+}
+
+
+.signUpBtn:hover {
     background-color:rgb(33, 53, 156);
+}
+
+.signUpBtn:active {
+    background-color: rgba(87, 8, 18);
+    box-shadow: 0 2px #666;
+    transform: translateY(4px);
 }

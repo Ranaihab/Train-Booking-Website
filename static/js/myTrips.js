@@ -5,7 +5,7 @@ $('.cancel').click(function () {
         type: 'GET',
         url: '/cancelBook',
         data: {
-            'bookId': id, 
+            'bookId': id,
             'userId': userId
         },
         success: function (response) {

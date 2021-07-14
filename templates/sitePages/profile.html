@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/Profile.css' %}">
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
 <script src="{% static '/js/check.js' %}"></script>
 {% endblock%} {% block title %} Profile {% endblock %} {% block content %}
 
@@ -11,21 +11,21 @@
         <label id="text1">Username <br />
             <input type="text" name="uname" id="textfield" value="{{user.username}}" disabled>
         </label>
-        <br/>
+        <br />
         <label id="text1">First Name <br />
             <input type="text" name="fname" id="textfield2" value="{{user.first_name}}" disabled>
-        </label><br/>
+        </label><br />
 
         <label id="text2"> Last Name
             <br />
             <input type="text" name="lname" id="textfield" value="{{user.last_name}}" disabled>
         </label>
-        <br/>
+        <br />
         <label id="text1"> Email
             <br />
             <input type="Email" name="email" id="textfield2" value="{{user.email}}" disabled>
         </label>
-        <br/>
+        <br />
 
 
         <label id="text1"> Password
@@ -36,7 +36,5 @@
     </div>
     <input type="submit" id="b1" value="update">
 </form>
-
-
 
 {% endblock %}

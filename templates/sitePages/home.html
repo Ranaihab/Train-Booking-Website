@@ -1,13 +1,13 @@
-{% extends "base.html" %} 
-{% load static %} 
+{% extends "base.html" %}
+{% load static %}
 {% load tags %}
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/homePage.css' %}">
-{% endblock%} 
+{% endblock%}
 {% block title %} Home {% endblock %}
 {% block content %}
 
-<div class="filter" value="{{ trips }}" id = "variable">
+<div class="filter" value="{{ trips }}" id="variable">
     <span><label for="Filter options" id="label1">Filter By</label></span>
     <br> <br>
 
@@ -23,7 +23,7 @@
                 <option value="{{station.id}}">{{station.stationName}}</option>
             {% endfor %}
         </select><br>
-    
+
         <label for="destOption">Destination</label>
         <select name="destOption" id="destOption">
             <option value="stations" hidden>Stations</option>
@@ -67,30 +67,30 @@
         </tr>
 
         {% for trip in trips %}
-            {% if trip.isPast and trip.Remaining_seats > 0 %}
-                <tr id = "{{trip.id}}">
-                    <td>{{trip.id}}</td>
-                    <td>{{ trip.train.id }}</td>
-                    <td>{{trip.source.stationName}}</td>
-                    <td>{{trip.destination.stationName}}</td>
-                    <td>{{trip.day}}</td>
-                    <td>{{trip.start_Time}}</td>
-                    <td>{{trip.end_Time}}</td>
-                    <td>
-                        <select>
-                            <option selected hidden>Seats</option>
-                            {% tripSeat trip as seats %}
-                            {% for seat in seats %}
-                                <option disabled>{{seat}}</option>
-                            {% endfor %}
-                        </select>
-                    </td>
-                    <td>{{trip.price}}</td>
-                    <td>
-                        <a href="{% url 'blog:certainTrip' trip.id %}"><button>Book</button></a>
-                    </td>
-                </tr>
-            {% endif %}
+        {% if trip.isPast and trip.Remaining_seats > 0 %}
+        <tr id="{{trip.id}}">
+            <td>{{trip.id}}</td>
+            <td>{{ trip.train.id }}</td>
+            <td>{{trip.source.stationName}}</td>
+            <td>{{trip.destination.stationName}}</td>
+            <td>{{trip.day}}</td>
+            <td>{{trip.start_Time}}</td>
+            <td>{{trip.end_Time}}</td>
+            <td>
+                <select>
+                    <option selected hidden>Seats</option>
+                    {% tripSeat trip as seats %}
+                    {% for seat in seats %}
+                    <option disabled>{{seat}}</option>
+                    {% endfor %}
+                </select>
+            </td>
+            <td>{{trip.price}}</td>
+            <td>
+                <a href="{% url 'blog:certainTrip' trip.id %}"><button>Book</button></a>
+            </td>
+        </tr>
+        {% endif %}
         {% empty %}
         <tr id="notrip">
             <td colspan="10">No Trips Available</td>
@@ -102,41 +102,3 @@
 <script src="{% static 'js/home.js' %}"> </script>
 
 {% endblock content %}
-
-<!--<div id="Filter options">
-
-        <button value="date" id="da" onclick="date()"> Date</button>
-
-        <button value="time" id="ti" onclick="time()"> Time</button>
-
-        <button value="source" id="src" onclick="source()">Source</button>
-
-        <button value="destination" id="desti" onclick="desti()">Destination</button>
-
-        <button value="required Seats" id="noOf" onclick="number()"> Required Number of Seats</button>
-
-    </div>
-    <div id="filter" style="display: none;">
-        <div id="op1">
-            <label for="Date">Date : </label>
-            <input type="date" id="Date">
-        </div>
-        <div id="op2">
-            <label for=" time1 ">Departure Time : </label>
-            <input type="time " id="time1 ">
-            <br>
-            <label for="time2 ">Arrival Time : </label>
-            <input type="time " id="time2 ">
-        </div>
-        <div id="op3 ">
-            <label for=" source ">Source : </label>
-            <input type="text " id="source ">
-        </div>
-        <div id="op4 ">
-            <label for="destination ">Destination : </label>
-            <input type="text " id="destination ">
-        </div>
-        <div id="op5 ">
-            <label for=" no "> Required Number of Seats : </label>
-            <input type="number " id="no ">
-        </div>-->

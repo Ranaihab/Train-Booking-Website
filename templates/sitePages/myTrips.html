@@ -29,7 +29,7 @@
 
         {% for book in books %}
 
-        <tr id = "{{book.id}}">
+        <tr id="{{book.id}}">
             <td>{{book.trip.id}}</td>
             <td>{{book.trip.train.id}}</td>
             <td>{{book.trip.source.stationName}}</td>
@@ -42,7 +42,7 @@
                     <option selected hidden>Seats</option>
                     {% bookSeat book as seats %}
                     {% for seat in seats %}
-                        <option disabled>{{seat.id}}</option>
+                    <option disabled>{{seat.id}}</option>
                     {% endfor %}
                 </select>
             </td>
@@ -63,4 +63,3 @@
 </div>
 <script src="{% static 'js/myTrips.js' %}"></script>
 {% endblock content %}
-

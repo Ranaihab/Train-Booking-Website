@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: "Wire+One", serif;
 }
 
 nav {
@@ -10,8 +11,7 @@ nav {
     padding-top: 20px;
     text-align: right;
     width: 100%;
-    font-size: 18px;
-    font-family: "Wire+One";
+    font-size: 22px;
     background: rgba(87, 8, 18, 0.671);
     position: fixed;
     margin-left: -8px;
@@ -26,7 +26,7 @@ nav a {
 }
 
 nav a:hover {
-    color: black;
+    color: rgb(16, 151, 204);
 }
 
 #signIn {
