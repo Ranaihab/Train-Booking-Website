@@ -109,6 +109,11 @@ def cancelBook(request):
             bookId = request.GET['bookId']
             userId = request.GET['userId']
             obj = Book.objects.filter(id=bookId)
+            trip = obj[0].trip
+            bookSeats = obj.values_list('seatTrain', flat=True)
+            seatCount = len(bookSeats)
+            trip.Remaining_seats += seatCount
+            trip.save()
             obj.delete()   
             return myTrips(request, userId)
 
@@ -127,20 +132,21 @@ def book(request):
         if(tid is None):
             return render
         trip = Trip.objects.get(id = tid)
-
         book = Book(
-                trip = Trip.objects.get(id = tid),
+                trip = trip,
                 user = request.user,
                 seats = len(request.POST.get('selected')),
             )
         book.save()
         
-        for i in request.POST.get('selected'):
+        for i in request.POST.getlist('selected'):
             if not Seat.objects.filter(id = i):
                 seat = Seat(id = i)
                 seat.save()
             seat = Seat.objects.get(id = i)
-            book.seatTrain.set(seat)
+            book.seatTrain.add(seat)
             trip.Remaining_seats -= 1
+            trip.save()
         book.save()
-        return render(request, 'sitePages/Home.html', {'errorMsg': 'Book is successful'})
+        trips = Trip.objects.all()
+        return render(request, 'sitePages/Home.html', {'errorMsg': 'Book is successful', 'trips': trips})
