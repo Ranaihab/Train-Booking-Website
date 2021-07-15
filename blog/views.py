@@ -102,7 +102,7 @@ def updateProfile(request):
             if user.last_name != data['lname']:
                 user.last_name = data['lname']
             if user.password != data['password']:
-                user.password = data['password']
+                user.set_password(data['password'])
             user.save()
             return JsonResponse({'msg': "Information Saved"})
 

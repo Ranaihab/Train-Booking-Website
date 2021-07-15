@@ -6,7 +6,6 @@ $('.cancel').click(function () {
         url: '/cancelBook',
         data: {
             'bookId': id,
-            'userId': userId
         },
         success: function (response) {
             if (response.msg == "Book is canceled") {
