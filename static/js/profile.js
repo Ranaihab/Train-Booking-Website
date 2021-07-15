@@ -109,11 +109,10 @@ $('#submit').click(function(){
             if(response.msg == "Information Saved"){
                 $('#submit').val('update');
                 $('input').attr('readonly', true);
+                document.getElementById("us").innerHTML = username;
             }
             document.getElementById("msg").innerHTML = response.msg;
-            document.getElementById("us").innerHTML = username;
+            
         }
     })
-
-
 });
