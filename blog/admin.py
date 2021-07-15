@@ -1,6 +1,17 @@
 from django.contrib import admin
 from .models import Station, Train, Trip, Book, Seat
 
+class BookAdmin(admin.ModelAdmin):
+    list_display = ('id', 'username', 'trip', 'seats')
+    def has_add_permission(self, request):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+    def has_change_permission(self, request, obj=None):
+        return False
+
 class StationAdmin(admin.ModelAdmin):
     list_display = ('id', 'stationName')
 
@@ -17,9 +28,7 @@ class TripAdmin(admin.ModelAdmin):
 
     
 
-
 admin.site.register(Station, StationAdmin)
 admin.site.register(Train, TrainAdmin)
 admin.site.register(Trip, TripAdmin)
-admin.site.register(Book)
-admin.site.register(Seat)
+admin.site.register(Book, BookAdmin)

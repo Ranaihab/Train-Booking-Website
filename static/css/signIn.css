@@ -14,7 +14,7 @@ body {
     margin-top: 15%;
     margin-left: 30%;
     margin-right: 5%;
-    background: rgba(51, 46, 45, 0.63);
+    background: rgba(1, 17, 24, 0.8);
     text-align: center;
 }
 
@@ -77,11 +77,7 @@ input::placeholder {
 
 .notAcc {
     padding-bottom: 15px;
-}
-
-.rememberMe {
-    display: block;
-    margin-top: 10px;
+    color: white;
 }
 
 .text-muted {
@@ -89,5 +85,5 @@ input::placeholder {
 }
 
 .text-muted a {
-    color: aliceblue;
+    color: rgb(160, 202, 236);
 }

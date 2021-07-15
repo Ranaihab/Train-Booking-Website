@@ -8,7 +8,8 @@ from datetime import date
 
 #Create your models here.
 class Seat(models.Model):
-    id = models.IntegerField(default=-1, primary_key=True)
+    id = models.IntegerField(default=-1, primary_key=True, editable=False)
+
 
 class Station(models.Model):
     id = models.IntegerField(default=-1, primary_key=True)
@@ -27,6 +28,10 @@ class Train(models.Model):
 
     def Destination(self):
         return self.destination.stationName
+
+    def clean(self):
+        if self.source.id > self.destination.id:
+            raise ValidationError("Source and Destination of the train are just 2 end points so kindly enter the source(ID) less than the destination(ID) and if you want the train to move backward choose the desired source and destination in Trips.")
 
 
 class Trip(models.Model):
@@ -52,7 +57,7 @@ class Trip(models.Model):
     @property
     def isPast(self):
         return self.day >= date.today()
-    
+
     def clean(self):
         if self.id is None:
             self.Remaining_seats = self.train.Number_of_seats
@@ -67,9 +72,10 @@ class Trip(models.Model):
             raise ValidationError(
                 "Source and destination cannot be same station")
 
-        trips = Trip.objects.select_related('train').filter(train__id=self.train.id)
+        trips = Trip.objects.select_related(
+            'train').filter(train__id=self.train.id)
         for tr in trips:
-            if self.day == tr.day:
+            if self.day == tr.day and self.id != tr.id:
                 if (self.start_Time >= tr.start_Time and self.start_Time < tr.end_Time) or (self.end_Time > tr.start_Time and self.end_Time <= tr.end_Time):
                     raise ValidationError(
                         "Their is a trip on this train at the same time")
@@ -84,6 +90,9 @@ class Book(models.Model):
         Trip, on_delete=models.CASCADE, related_name="BookTrips", null=False)
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="BookUser", null=False)
-    seats = IntegerField(default=0)
-    seatTrain = models.ManyToManyField(Seat, null = True)
+    seatTrain = models.ManyToManyField(Seat, null=True)
+    seats = models.IntegerField(default=0)
+
+    def username(self):
+        return self.user.username
 

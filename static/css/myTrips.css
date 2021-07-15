@@ -13,7 +13,7 @@
 .trips {
     margin-top: 4%;
     margin-left: 20%;
-    background: rgba(51, 46, 45, 0.63);
+    background: rgba(1, 17, 24, 0.7);
     width: 1000px;
     height: 670px;
     overflow: scroll;
@@ -39,6 +39,6 @@ th {
 td {
     width: 114.28px;
     height: 50px;
-    font-size: 16px;
+    font-size: 17px;
     color: whitesmoke;
 }

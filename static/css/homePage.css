@@ -10,7 +10,7 @@
         display: inline-block;
         align-items: center;
         margin-top: 4%;
-        background: rgba(51, 46, 45, 0.63);
+        background: rgba(1, 17, 24, 0.7);
         width: 330px;
         height: 280px;
         padding-top: 20px;
@@ -18,7 +18,7 @@
     }
 
     .filter label {
-        font-size: 17px;
+        font-size: 20px;
         color: white;
         margin-left: 10px;
     }
@@ -48,7 +48,7 @@
     .trips {
         top: 17%;
         margin-left: 27%;
-        background: rgba(51, 46, 45, 0.63);
+        background: rgba(1, 17, 24, 0.8);
         width: 800px;
         height: 500px;
         margin-top: 10px;
@@ -75,7 +75,7 @@
     td {
         width: 114.28px;
         height: 30px;
-        font-size: 16px;
+        font-size: 17px;
         color: whitesmoke;
     }
 

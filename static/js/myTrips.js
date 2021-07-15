@@ -18,7 +18,6 @@ $('.cancel').click(function () {
                     var cell = row.insertCell(0);
                     cell.innerHTML = "No Books";
                     cell.colSpan = "10";
-
                 }
             }
             document.getElementById("msg").innerHTML = response.msg
