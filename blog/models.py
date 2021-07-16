@@ -35,6 +35,8 @@ class Train(models.Model):
 
         if self.Number_of_seats <= 19:
             raise ValidationError("Number of seats cannot be less than 20")
+        if self.source.id == self.destination.id:
+            raise ValidationError("Source and destination cannot be same station")
 
 class Trip(models.Model):
     train = models.ForeignKey(
