@@ -33,6 +33,8 @@ class Train(models.Model):
         if self.source.id > self.destination.id:
             raise ValidationError("Source and Destination of the train are just 2 end points so kindly enter the source(ID) less than the destination(ID) and if you want the train to move backward choose the desired source and destination in Trips.")
 
+        if self.Number_of_seats <= 19:
+            raise ValidationError("Number of seats cannot be less than 20")
 
 class Trip(models.Model):
     train = models.ForeignKey(
